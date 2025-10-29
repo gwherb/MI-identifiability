@@ -425,6 +425,25 @@ class MLP(nn.Module):
                                 f'Bad Epochs: {bad_epochs}{reg_info}')
 
         return avg_loss
+    
+    def do_eval(self, x_test, y_test):
+        """
+        Performs evaluation on the given test data
+
+        Args:
+            x_test: The test input tensor
+            y_test: The test target tensor
+
+        Returns:
+            The accuracy of the model on the test data
+        """
+        self.eval()
+        with torch.no_grad():
+            val_outputs = self(x_test)
+            val_predictions = torch.round(val_outputs)
+            correct_predictions_val = val_predictions.eq(y_test).all(dim=1)
+            acc = correct_predictions_val.sum().item() / y_test.size(0)
+        return acc
 
     def separate_into_k_mlps(self):
         """
