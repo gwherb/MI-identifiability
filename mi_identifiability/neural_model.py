@@ -20,19 +20,18 @@ ACTIVATION_FUNCTIONS = {
 
 
 class MLP(nn.Module):
-    """
-    A class implementing a simple multi-layer perceptron model.
-    """
-    def __init__(self, hidden_sizes: list, input_size=2, output_size=1, activation='leaky_relu', device='cpu'):
+    def __init__(self, hidden_sizes: list, input_size=2, output_size=1, 
+                 activation='leaky_relu', device='cpu', dropout_rate=0.0):
         """
-        Initialize the MLP model.
-
+        Initialize the MLP model with optional dropout.
+        
         Args:
-            hidden_sizes: A list of sizes of the hidden layers (in neurons), not including the input and output layers
+            hidden_sizes: A list of sizes of the hidden layers
             input_size: The size of the input layer
             output_size: The size of the output layer
             activation: The activation function to use
             device: The device to run the model on
+            dropout_rate: Dropout probability (0.0 = no dropout)
         """
         super(MLP, self).__init__()
         self.input_size = input_size
@@ -40,41 +39,50 @@ class MLP(nn.Module):
         self.output_size = output_size
         self.layer_sizes = [input_size] + hidden_sizes + [output_size]
         self.activation = activation
+        self.dropout_rate = dropout_rate  # NEW
 
-        self.layers = nn.ModuleList(
-            nn.Sequential(
-                nn.Linear(in_size, out_size),
-                ACTIVATION_FUNCTIONS[activation]() if idx < len(self.layer_sizes) - 1 else nn.Identity()
-            ) for idx, (in_size, out_size) in enumerate(zip(self.layer_sizes, self.layer_sizes[1:]))
-        )
+        # Build layers with optional dropout
+        self.layers = nn.ModuleList()
+        for idx, (in_size, out_size) in enumerate(zip(self.layer_sizes, self.layer_sizes[1:])):
+            layer_components = [nn.Linear(in_size, out_size)]
+            
+            # Add dropout after linear layer (but not on output layer)
+            if idx < len(self.layer_sizes) - 2 and dropout_rate > 0:
+                layer_components.append(nn.Dropout(dropout_rate))
+            
+            # Add activation function (Identity for output layer)
+            if idx < len(self.layer_sizes) - 2:
+                layer_components.append(ACTIVATION_FUNCTIONS[activation]())
+            else:
+                layer_components.append(nn.Identity())
+            
+            self.layers.append(nn.Sequential(*layer_components))
 
         self.num_layers = len(self.layers)
         self.device = device
         self.to(device)
 
     def save_to_file(self, filepath):
-        """
-        Save the model's configuration and state_dict to a file.
-        """
+        """Save the model's configuration and state_dict to a file."""
         torch.save({
             'input_size': self.input_size,
             'hidden_sizes': self.hidden_sizes,
             'output_size': self.output_size,
             'activation': self.activation,
+            'dropout_rate': self.dropout_rate,  # NEW
             'state_dict': self.state_dict()
         }, filepath)
 
     @classmethod
     def load_from_file(cls, filepath):
-        """
-        Load a model from a file and return it.
-        """
+        """Load a model from a file and return it."""
         model_data = torch.load(filepath)
         model = cls(
             model_data['hidden_sizes'],
             input_size=model_data['input_size'],
             output_size=model_data['output_size'],
-            activation=model_data['activation']
+            activation=model_data['activation'],
+            dropout_rate=model_data.get('dropout_rate', 0.0)  # NEW (backwards compatible)
         )
         model.load_state_dict(model_data['state_dict'])
         return model
@@ -318,24 +326,17 @@ class MLP(nn.Module):
                 return self.layers[idx]
             return copy.deepcopy(self.layers[idx])
 
-    def do_train(self, x, y, x_val, y_val, batch_size, learning_rate, epochs, loss_target=0.001, val_frequency=10,
-                 early_stopping_steps=3, logger=None):
+    def do_train(self, x, y, x_val, y_val, batch_size, learning_rate, epochs, 
+                loss_target=0.001, val_frequency=10, early_stopping_steps=3, 
+                logger=None, l1_lambda=0.0, l2_lambda=0.0):
         """
         Train the model using the given data and hyperparameters.
-
+        
         Args:
-            x: The training input tensor
-            y: The training target tensor
-            x_val: The validation input tensor
-            y_val: The validation target tensorearly_stopping_steps
-            batch_size: The batch size for training
-            learning_rate: The learning rate for training
-            epochs: The number of epochs to train
-            loss_target: The target loss value to stop training
-            val_frequency: The frequency of validation during training
-            early_stopping_steps: The number of epochs without improvement to stop training
-            logger: The logger to log training progress
-
+            ... (existing args) ...
+            l1_lambda: L1 regularization coefficient (0.0 = no L1)
+            l2_lambda: L2 regularization coefficient (0.0 = no L2)
+        
         Returns:
             The average loss after training
         """
@@ -349,17 +350,35 @@ class MLP(nn.Module):
 
         best_loss = float('inf')
         bad_epochs = 0
-
         val_acc = 0
 
         # Training loop
         for epoch in range(epochs):
             self.train()
             epoch_loss = []
+            
             for inputs, targets in dataloader:
                 optimizer.zero_grad()
                 outputs = self(inputs)
-                loss = criterion(outputs, targets)
+                
+                # Base loss
+                base_loss = criterion(outputs, targets)
+                loss = base_loss
+                
+                # Add L1 Regularization
+                if l1_lambda > 0:
+                    l1_penalty = 0
+                    for param in self.parameters():
+                        l1_penalty += torch.sum(torch.abs(param))
+                    loss = loss + l1_lambda * l1_penalty
+                
+                # Add L2 Regularization
+                if l2_lambda > 0:
+                    l2_penalty = 0
+                    for param in self.parameters():
+                        l2_penalty += torch.sum(param ** 2)
+                    loss = loss + l2_lambda * l2_penalty
+                
                 loss.backward()
                 optimizer.step()
                 epoch_loss.append(loss.item())
@@ -391,30 +410,21 @@ class MLP(nn.Module):
                     correct_predictions_val = val_predictions.eq(y_val).all(dim=1)
                     val_acc = correct_predictions_val.sum().item() / y_val.size(0)
 
+                    # Log regularization info
+                    reg_info = ""
+                    if l1_lambda > 0:
+                        reg_info += f", L1: {l1_lambda}"
+                    if l2_lambda > 0:
+                        reg_info += f", L2: {l2_lambda}"
+                    if self.dropout_rate > 0:
+                        reg_info += f", Dropout: {self.dropout_rate}"
+
                     logger.info(f'Epoch [{epoch + 1}/{epochs}], '
                                 f'Train Loss: {avg_loss:.4f}, Train Accuracy: {train_acc:.4f}')
-                    logger.info(f'Val Loss: {val_loss:.4f}, Val Accuracy: {val_acc:.4f}, Bad Epochs: {bad_epochs}')
+                    logger.info(f'Val Loss: {val_loss:.4f}, Val Accuracy: {val_acc:.4f}, '
+                                f'Bad Epochs: {bad_epochs}{reg_info}')
 
         return avg_loss
-
-    def do_eval(self, x_test, y_test):
-        """
-        Performs evaluation on the given test data
-
-        Args:
-            x_test: The test input tensor
-            y_test: The test target tensor
-
-        Returns:
-            The accuracy of the model on the test data
-        """
-        self.eval()
-        with torch.no_grad():
-            val_outputs = self(x_test)
-            val_predictions = torch.round(val_outputs)
-            correct_predictions_val = val_predictions.eq(y_test).all(dim=1)
-            acc = correct_predictions_val.sum().item() / y_test.size(0)
-        return acc
 
     def separate_into_k_mlps(self):
         """
