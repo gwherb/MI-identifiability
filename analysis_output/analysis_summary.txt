@@ -1,0 +1,19 @@
+REGULARIZATION EFFECTS ON PARALLEL CIRCUITS
+============================================================
+
+
+L1 Regularization:
+----------------------------------------
+Strongest effect at l2_lambda=0.001
+  Mean change: 17.64 circuits (32.4%)
+  Effect size (Cohen's d): 0.493
+  Statistical significance: p=0.0001
+  Hypothesis supported: NO
+
+L2 Regularization:
+----------------------------------------
+Strongest effect at l2_lambda=0.001
+  Mean change: -4.31 circuits (-7.4%)
+  Effect size (Cohen's d): -0.123
+  Statistical significance: p=0.3177
+  Hypothesis supported: NO

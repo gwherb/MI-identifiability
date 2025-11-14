@@ -29,11 +29,16 @@ def load_results(results_dir):
 
 def compute_summary_statistics(df, group_by='l1_lambda'):
     """Compute summary statistics for each regularization level."""
-    summary = df.groupby(group_by).agg({
-        'perfect_circuits': ['mean', 'std', 'count'],
-        'formulas': ['mean', 'std'],
+    # Parse perfect_circuits if it's stored as string
+    df_copy = df.copy()
+    df_copy['n_circuits'] = df_copy['perfect_circuits'].apply(
+        lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
+    )
+
+    summary = df_copy.groupby(group_by).agg({
+        'n_circuits': ['mean', 'std', 'count'],
     }).round(3)
-    
+
     return summary
 
 
@@ -51,25 +56,22 @@ def plot_circuits_vs_regularization(df, reg_type='l1', output_file=None):
     
     col_name = f'{reg_type}_lambda' if reg_type in ['l1', 'l2'] else 'dropout_rate'
     
-    # Flatten circuit counts (they're stored as lists)
+    # Flatten circuit counts (they're stored as lists or strings)
     df_exploded = df.copy()
     df_exploded['n_circuits'] = df_exploded['perfect_circuits'].apply(
-        lambda x: x[0] if isinstance(x, list) else x
+        lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
     )
     
     # Plot 1: Number of circuits
     sns.boxplot(data=df_exploded, x=col_name, y='n_circuits', ax=axes[0, 0])
     axes[0, 0].set_title('Number of Circuits Found')
     axes[0, 0].set_ylabel('Circuit Count')
-    
-    # Plot 2: Number of formulas
-    df_exploded['n_formulas'] = df_exploded['formulas'].apply(
-        lambda x: x[0] if isinstance(x, list) else x
-    )
-    sns.boxplot(data=df_exploded, x=col_name, y='n_formulas', ax=axes[0, 1])
-    axes[0, 1].set_title('Number of Formulas Matched')
-    axes[0, 1].set_ylabel('Formula Count')
-    
+
+    # Plot 2: Circuit count violin plot
+    sns.violinplot(data=df_exploded, x=col_name, y='n_circuits', ax=axes[0, 1])
+    axes[0, 1].set_title('Circuit Count Distribution')
+    axes[0, 1].set_ylabel('Circuit Count')
+
     # Plot 3: Mean trend line
     mean_circuits = df_exploded.groupby(col_name)['n_circuits'].mean()
     axes[1, 0].plot(mean_circuits.index, mean_circuits.values, marker='o', linewidth=2)
@@ -106,20 +108,20 @@ def statistical_comparison(df, baseline_lambda=0.0, reg_type='l1'):
         DataFrame with test results
     """
     col_name = f'{reg_type}_lambda' if reg_type in ['l1', 'l2'] else 'dropout_rate'
-    
-    # Get baseline data
+
+    # Get baseline data - parse strings to lists if needed
     baseline = df[df[col_name] == baseline_lambda]['perfect_circuits'].apply(
-        lambda x: x[0] if isinstance(x, list) else x
+        lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
     )
-    
+
     results = []
-    
+
     for reg_val in sorted(df[col_name].unique()):
         if reg_val == baseline_lambda:
             continue
-            
+
         treatment = df[df[col_name] == reg_val]['perfect_circuits'].apply(
-            lambda x: x[0] if isinstance(x, list) else x
+            lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
         )
         
         # Perform t-test

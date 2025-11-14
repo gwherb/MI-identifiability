@@ -326,8 +326,8 @@ class MLP(nn.Module):
                 return self.layers[idx]
             return copy.deepcopy(self.layers[idx])
 
-    def do_train(self, x, y, x_val, y_val, batch_size, learning_rate, epochs, 
-                loss_target=0.001, val_frequency=10, early_stopping_steps=3, 
+    def do_train(self, x, y, x_val, y_val, batch_size, learning_rate, epochs,
+                loss_target=0.001, val_frequency=10, early_stopping_steps=30,
                 logger=None, l1_lambda=0.0, l2_lambda=0.0):
         """
         Train the model using the given data and hyperparameters.
