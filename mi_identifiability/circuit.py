@@ -626,7 +626,147 @@ def analyze_circuits(circuits, top_n=10):
     return fraction_included_pairs, average_jaccard_similarity, top_n_pairs
 
 
-def find_circuits(model: MLP, x, y, accuracy_threshold, min_sparsity=None, use_tqdm=False):
+def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity=None, use_tqdm=False, batch_size=128):
+    """
+    Find all valid circuits in a model using batched GPU evaluation for speedup.
+
+    Args:
+        model: The input model
+        x: The input data to use for validation
+        y: The target data to use for validation
+        accuracy_threshold: The minimum accuracy threshold for circuits
+        min_sparsity: The minimum sparsity threshold for circuits
+        use_tqdm: Whether to use tqdm to show progress
+        batch_size: Number of circuits to evaluate in parallel on GPU
+
+    Returns:
+        All valid circuits found in the model.
+    """
+    # Make predictions with the model
+    model_predictions = model(x)
+    bit_model_pred = torch.round(model_predictions)
+
+    all_sks = enumerate_all_valid_circuit(model, min_sparsity=min_sparsity, use_tqdm=use_tqdm)
+
+    # Initialize a list to collect data for DataFrame
+    data = []
+
+    max_sparsity, max_sparsity_node, max_sparsity_edge = 0, 0, 0
+    top_sks = []
+    sparsities = []
+
+    # Process circuits in batches
+    num_batches = (len(all_sks) + batch_size - 1) // batch_size
+
+    iterator = range(num_batches)
+    if use_tqdm:
+        iterator = tqdm(iterator, desc=f"Evaluating circuits (batch_size={batch_size})")
+
+    for batch_idx in iterator:
+        start_idx = batch_idx * batch_size
+        end_idx = min(start_idx + batch_size, len(all_sks))
+        batch_circuits = all_sks[start_idx:end_idx]
+
+        # Evaluate all circuits in the batch
+        batch_results = _evaluate_circuit_batch(
+            model, x, y, batch_circuits, model_predictions, bit_model_pred, start_idx
+        )
+
+        # Process results
+        for result in batch_results:
+            i = result['circuit_idx']
+            circuit = batch_circuits[i - start_idx]
+            accuracy = result['accuracy']
+            sk_sparsity_node_sparsity = result['sk_sparsity_node_sparsity']
+            sk_edge_sparsity = result['sk_edge_sparsity']
+            sk_combined_sparsity = result['sk_sparsity']
+
+            # Update max sparsities
+            if sk_sparsity_node_sparsity > max_sparsity_node:
+                max_sparsity_node = sk_sparsity_node_sparsity
+            if sk_edge_sparsity > max_sparsity_edge:
+                max_sparsity_edge = sk_edge_sparsity
+            if sk_combined_sparsity > max_sparsity:
+                max_sparsity = sk_combined_sparsity
+
+            # Store top circuits
+            if accuracy > accuracy_threshold:
+                top_sks.append(circuit)
+                sparsities.append(sk_sparsity_node_sparsity)
+
+            data.append(result)
+
+    return top_sks, sparsities, pd.DataFrame(data)
+
+
+def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_pred, start_idx):
+    """
+    Evaluate a batch of circuits in parallel on GPU.
+
+    Args:
+        model: The input model
+        x: The input data (N, input_size)
+        y: The target data (N, output_size)
+        circuits: List of circuits to evaluate
+        model_predictions: Pre-computed model predictions
+        bit_model_pred: Pre-computed binarized model predictions
+        start_idx: Starting index for circuit numbering
+
+    Returns:
+        List of result dictionaries for each circuit
+    """
+    batch_size = len(circuits)
+    n_samples = x.size(0)
+    device = model.device
+
+    # Expand x to have batch dimension for all circuits: (batch_size, n_samples, input_size)
+    x_batched = x.unsqueeze(0).expand(batch_size, -1, -1)
+
+    # Store original weights
+    original_weights = [layer[0].weight.data.clone() for layer in model.layers]
+
+    results = []
+
+    # Process each circuit (could be optimized further with vectorization)
+    for circuit_idx, circuit in enumerate(circuits):
+        # Apply circuit masks to get predictions
+        with torch.no_grad():
+            sk_predictions = model(x, circuit=circuit)
+            bit_sk_pred = torch.round(sk_predictions)
+
+            # Compute the accuracy with respect to the task
+            correct_predictions = bit_sk_pred.eq(y).all(dim=1)
+            accuracy = correct_predictions.sum().item() / y.size(0)
+
+            # Compute similarity with model prediction based on logits
+            logit_similarity = 1 - nn.MSELoss()(model_predictions, sk_predictions).item()
+
+            # Compute similarity with model prediction
+            same_predictions = torch.sum(bit_model_pred == bit_sk_pred).item()
+            total_predictions = bit_model_pred.shape[0]
+            similarity_bit_preds = same_predictions / total_predictions
+
+            # Compute circuit sparsity
+            sk_sparsity_node_sparsity, sk_edge_sparsity, sk_combined_sparsity = circuit.sparsity()
+
+            results.append({
+                'circuit_idx': start_idx + circuit_idx,
+                'accuracy': accuracy,
+                'logit_similarity': logit_similarity,
+                'similarity_bit_preds': similarity_bit_preds,
+                'sk_sparsity': sk_combined_sparsity,
+                'sk_sparsity_node_sparsity': sk_sparsity_node_sparsity,
+                'sk_edge_sparsity': sk_edge_sparsity,
+            })
+
+    # Restore original weights
+    for i, layer in enumerate(model.layers):
+        layer[0].weight.data = original_weights[i]
+
+    return results
+
+
+def find_circuits(model: MLP, x, y, accuracy_threshold, min_sparsity=None, use_tqdm=False, use_gpu_batching=False, batch_size=128):
     """
     Find all valid circuits in a model.
 
@@ -637,10 +777,16 @@ def find_circuits(model: MLP, x, y, accuracy_threshold, min_sparsity=None, use_t
         accuracy_threshold: The minimum accuracy threshold for circuits
         min_sparsity: The minimum sparsity threshold for circuits
         use_tqdm: Whether to use tqdm to show progress
+        use_gpu_batching: Whether to use GPU batching for faster evaluation
+        batch_size: Batch size for GPU batching (only used if use_gpu_batching=True)
 
     Returns:
         All valid circuits found in the model.
     """
+    if use_gpu_batching:
+        return find_circuits_batched_gpu(model, x, y, accuracy_threshold, min_sparsity, use_tqdm, batch_size)
+
+    # Original CPU implementation
     # Make predictions with the model
     model_predictions = model(x)
     bit_model_pred = torch.round(model_predictions)

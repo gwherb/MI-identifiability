@@ -1,0 +1,27 @@
+REGULARIZATION EFFECTS ON PARALLEL CIRCUITS
+============================================================
+
+
+L1 Regularization:
+----------------------------------------
+Strongest effect at dropout_rate=0.001
+  Mean change: 14.20 circuits (25.0%)
+  Effect size (Cohen's d): 0.391
+  Statistical significance: p=0.0018
+  Hypothesis supported: NO
+
+L2 Regularization:
+----------------------------------------
+Strongest effect at dropout_rate=0.0001
+  Mean change: -2.89 circuits (-4.9%)
+  Effect size (Cohen's d): -0.078
+  Statistical significance: p=0.4841
+  Hypothesis supported: NO
+
+DROPOUT Regularization:
+----------------------------------------
+Strongest effect at dropout_rate=0.01
+  Mean change: 5.19 circuits (9.1%)
+  Effect size (Cohen's d): 0.144
+  Statistical significance: p=0.2207
+  Hypothesis supported: NO

@@ -123,7 +123,9 @@ def run_experiment(logger, output_dir, run_dir, args):
                     x_val,
                     y_val[..., i].unsqueeze(1),
                     accuracy_threshold=args.accuracy_threshold,
-                    min_sparsity=min_sparsity
+                    min_sparsity=min_sparsity,
+                    use_gpu_batching=args.use_gpu_batching,
+                    batch_size=args.gpu_batch_size
                 )
 
                 n_circuits.append(len(top_circuits))
@@ -192,12 +194,18 @@ if __name__ == "__main__":
     parser.add_argument('--resume-from', type=str, default=None, help='Resume from a previous run')
 
     # NEW: Regularization arguments
-    parser.add_argument('--l1-lambda', type=float, default=0.0, 
+    parser.add_argument('--l1-lambda', type=float, default=0.0,
                         help='L1 regularization coefficient (default: 0.0)')
-    parser.add_argument('--l2-lambda', type=float, default=0.0, 
+    parser.add_argument('--l2-lambda', type=float, default=0.0,
                         help='L2 regularization coefficient (default: 0.0)')
-    parser.add_argument('--dropout-rate', type=float, default=0.0, 
+    parser.add_argument('--dropout-rate', type=float, default=0.0,
                         help='Dropout rate, 0.0 to 1.0 (default: 0.0)')
+
+    # Circuit discovery optimization arguments
+    parser.add_argument('--use-gpu-batching', action='store_true',
+                        help='Use GPU batching for faster circuit discovery')
+    parser.add_argument('--gpu-batch-size', type=int, default=128,
+                        help='Batch size for GPU circuit evaluation (default: 128)')
 
     args = parser.parse_args()
     output_dir = Path('logs')
