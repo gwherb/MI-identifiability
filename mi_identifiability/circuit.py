@@ -626,6 +626,50 @@ def analyze_circuits(circuits, top_n=10):
     return fraction_included_pairs, average_jaccard_similarity, top_n_pairs
 
 
+def _prepare_masks_gpu_once(all_circuits, model, device):
+    """
+    Pre-convert all circuit masks to GPU tensors once to avoid repeated CPU->GPU transfers.
+
+    Args:
+        all_circuits: List of all circuits
+        model: The model
+        device: GPU device
+
+    Returns:
+        Tuple of (all_edge_masks, all_node_masks) as GPU tensors
+    """
+    num_circuits = len(all_circuits)
+    num_layers = len(model.layers)
+
+    # Pre-allocate lists
+    all_edge_masks = []
+    all_node_masks = []
+
+    for layer_idx in range(num_layers):
+        # Stack all edge masks for this layer across all circuits
+        edge_masks = torch.stack([
+            torch.tensor(circuit.edge_masks[layer_idx], dtype=torch.float32, device=device)
+            for circuit in all_circuits
+        ], dim=0)  # (num_circuits, out_features, in_features)
+        all_edge_masks.append(edge_masks)
+
+        # Stack all node masks for this layer across all circuits
+        node_masks = torch.stack([
+            torch.tensor(circuit.node_masks[layer_idx], dtype=torch.float32, device=device)
+            for circuit in all_circuits
+        ], dim=0)  # (num_circuits, num_nodes)
+        all_node_masks.append(node_masks)
+
+    # Add output node masks
+    output_masks = torch.stack([
+        torch.tensor(circuit.node_masks[-1], dtype=torch.float32, device=device)
+        for circuit in all_circuits
+    ], dim=0)
+    all_node_masks.append(output_masks)
+
+    return all_edge_masks, all_node_masks
+
+
 def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity=None, use_tqdm=False, batch_size=128):
     """
     Find all valid circuits in a model using batched GPU evaluation for speedup.
@@ -642,11 +686,18 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
     Returns:
         All valid circuits found in the model.
     """
+    device = model.device
+
     # Make predictions with the model
     model_predictions = model(x)
     bit_model_pred = torch.round(model_predictions)
 
     all_sks = enumerate_all_valid_circuit(model, min_sparsity=min_sparsity, use_tqdm=use_tqdm)
+
+    # PRE-CONVERT ALL MASKS TO GPU ONCE (major optimization!)
+    if use_tqdm:
+        print(f"Pre-converting {len(all_sks)} circuit masks to GPU...")
+    all_edge_masks_gpu, all_node_masks_gpu = _prepare_masks_gpu_once(all_sks, model, device)
 
     # Initialize a list to collect data for DataFrame
     data = []
@@ -665,9 +716,14 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
         end_idx = min(start_idx + batch_size, len(all_sks))
         batch_circuits = all_sks[start_idx:end_idx]
 
+        # Slice pre-converted GPU masks (no CPU->GPU transfer!)
+        edge_masks_batch = [masks[start_idx:end_idx] for masks in all_edge_masks_gpu]
+        node_masks_batch = [masks[start_idx:end_idx] for masks in all_node_masks_gpu]
+
         # Evaluate all circuits in the batch
-        batch_results = _evaluate_circuit_batch(
-            model, x, y, batch_circuits, model_predictions, bit_model_pred, start_idx
+        batch_results = _evaluate_circuit_batch_preconverted(
+            model, x, y, edge_masks_batch, node_masks_batch,
+            model_predictions, bit_model_pred, start_idx
         )
 
         # Process results
@@ -686,15 +742,17 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
     return top_sks, sparsities, pd.DataFrame(data)
 
 
-def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_pred, start_idx):
+def _evaluate_circuit_batch_preconverted(model, x, y, edge_masks_batch, node_masks_batch,
+                                         model_predictions, bit_model_pred, start_idx):
     """
-    Evaluate a batch of circuits in parallel on GPU using vectorized operations.
+    Evaluate a batch of circuits using pre-converted GPU masks (optimized version).
 
     Args:
         model: The input model
         x: The input data (N, input_size)
         y: The target data (N, output_size)
-        circuits: List of circuits to evaluate
+        edge_masks_batch: Pre-converted edge masks on GPU (list of tensors per layer)
+        node_masks_batch: Pre-converted node masks on GPU (list of tensors per layer)
         model_predictions: Pre-computed model predictions
         bit_model_pred: Pre-computed binarized model predictions
         start_idx: Starting index for circuit numbering
@@ -702,35 +760,9 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
     Returns:
         List of result dictionaries for each circuit
     """
-    batch_size = len(circuits)
+    batch_size = edge_masks_batch[0].size(0)
     n_samples = x.size(0)
     device = model.device
-
-    # Prepare batched masks - shape: (batch_size, layer_dims...)
-    edge_masks_batched = []
-    node_masks_batched = []
-
-    for layer_idx in range(len(model.layers)):
-        # Stack edge masks for all circuits in the batch
-        edge_masks = torch.stack([
-            torch.tensor(circuit.edge_masks[layer_idx], dtype=torch.float32, device=device)
-            for circuit in circuits
-        ], dim=0)  # (batch_size, out_features, in_features)
-        edge_masks_batched.append(edge_masks)
-
-        # Stack node masks for all circuits in the batch
-        node_masks = torch.stack([
-            torch.tensor(circuit.node_masks[layer_idx], dtype=torch.float32, device=device)
-            for circuit in circuits
-        ], dim=0)  # (batch_size, num_nodes)
-        node_masks_batched.append(node_masks)
-
-    # Add output node masks
-    output_node_masks = torch.stack([
-        torch.tensor(circuit.node_masks[-1], dtype=torch.float32, device=device)
-        for circuit in circuits
-    ], dim=0)
-    node_masks_batched.append(output_node_masks)
 
     # Batched forward pass
     with torch.no_grad():
@@ -738,7 +770,7 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
         x_batch = x.unsqueeze(0).expand(batch_size, -1, -1)
 
         # Apply node masks to inputs
-        x_batch = x_batch * node_masks_batched[0].unsqueeze(1)  # (batch_size, n_samples, input_size)
+        x_batch = x_batch * node_masks_batch[0].unsqueeze(1)  # (batch_size, n_samples, input_size)
 
         # Forward through each layer
         for layer_idx, layer in enumerate(model.layers):
@@ -749,7 +781,7 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
             b = linear_layer.bias if linear_layer.bias is not None else 0
 
             # Apply edge masks to weights: (batch_size, out_features, in_features)
-            W_masked = W.unsqueeze(0) * edge_masks_batched[layer_idx]
+            W_masked = W.unsqueeze(0) * edge_masks_batch[layer_idx]
 
             # Batched matrix multiplication: (batch_size, n_samples, out_features)
             x_batch = torch.einsum('bni,boi->bno', x_batch, W_masked) + b
@@ -763,7 +795,7 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
 
             # Apply node masks to outputs (for next layer)
             if layer_idx < len(model.layers) - 1:
-                x_batch = x_batch * node_masks_batched[layer_idx + 1].unsqueeze(1)
+                x_batch = x_batch * node_masks_batch[layer_idx + 1].unsqueeze(1)
 
         # x_batch now has shape (batch_size, n_samples, output_size)
         sk_predictions_batch = x_batch
