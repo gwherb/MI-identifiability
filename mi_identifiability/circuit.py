@@ -701,7 +701,7 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
 
 def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_pred, start_idx):
     """
-    Evaluate a batch of circuits in parallel on GPU.
+    Evaluate a batch of circuits in parallel on GPU using vectorized operations.
 
     Args:
         model: The input model
@@ -719,49 +719,101 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
     n_samples = x.size(0)
     device = model.device
 
-    # Expand x to have batch dimension for all circuits: (batch_size, n_samples, input_size)
-    x_batched = x.unsqueeze(0).expand(batch_size, -1, -1)
+    # Prepare batched masks - shape: (batch_size, layer_dims...)
+    edge_masks_batched = []
+    node_masks_batched = []
 
-    # Store original weights
-    original_weights = [layer[0].weight.data.clone() for layer in model.layers]
+    for layer_idx in range(len(model.layers)):
+        # Stack edge masks for all circuits in the batch
+        edge_masks = torch.stack([
+            torch.tensor(circuit.edge_masks[layer_idx], dtype=torch.float32, device=device)
+            for circuit in circuits
+        ], dim=0)  # (batch_size, out_features, in_features)
+        edge_masks_batched.append(edge_masks)
 
+        # Stack node masks for all circuits in the batch
+        node_masks = torch.stack([
+            torch.tensor(circuit.node_masks[layer_idx], dtype=torch.float32, device=device)
+            for circuit in circuits
+        ], dim=0)  # (batch_size, num_nodes)
+        node_masks_batched.append(node_masks)
+
+    # Add output node masks
+    output_node_masks = torch.stack([
+        torch.tensor(circuit.node_masks[-1], dtype=torch.float32, device=device)
+        for circuit in circuits
+    ], dim=0)
+    node_masks_batched.append(output_node_masks)
+
+    # Batched forward pass
+    with torch.no_grad():
+        # Replicate input for each circuit: (batch_size, n_samples, input_size)
+        x_batch = x.unsqueeze(0).expand(batch_size, -1, -1)
+
+        # Apply node masks to inputs
+        x_batch = x_batch * node_masks_batched[0].unsqueeze(1)  # (batch_size, n_samples, input_size)
+
+        # Forward through each layer
+        for layer_idx, layer in enumerate(model.layers):
+            linear_layer = layer[0]
+
+            # Get weights and bias
+            W = linear_layer.weight  # (out_features, in_features)
+            b = linear_layer.bias if linear_layer.bias is not None else 0
+
+            # Apply edge masks to weights: (batch_size, out_features, in_features)
+            W_masked = W.unsqueeze(0) * edge_masks_batched[layer_idx]
+
+            # Batched matrix multiplication: (batch_size, n_samples, out_features)
+            x_batch = torch.einsum('bni,boi->bno', x_batch, W_masked) + b
+
+            # Apply activation (skip activation on output layer - Identity)
+            if layer_idx < len(model.layers) - 1:
+                # Apply the activation function
+                activation_fn = layer[1] if len(layer) > 1 else layer[-1]
+                if not isinstance(activation_fn, nn.Identity):
+                    x_batch = activation_fn(x_batch)
+
+            # Apply node masks to outputs (for next layer)
+            if layer_idx < len(model.layers) - 1:
+                x_batch = x_batch * node_masks_batched[layer_idx + 1].unsqueeze(1)
+
+        # x_batch now has shape (batch_size, n_samples, output_size)
+        sk_predictions_batch = x_batch
+        bit_sk_pred_batch = torch.round(sk_predictions_batch)
+
+        # Expand targets and model predictions for comparison
+        y_expanded = y.unsqueeze(0).expand(batch_size, -1, -1)  # (batch_size, n_samples, output_size)
+        model_pred_expanded = model_predictions.unsqueeze(0).expand(batch_size, -1, -1)
+        bit_model_pred_expanded = bit_model_pred.unsqueeze(0).expand(batch_size, -1, -1)
+
+        # Compute metrics for all circuits at once
+        # Accuracy: (batch_size,)
+        correct_predictions = bit_sk_pred_batch.eq(y_expanded).all(dim=2)  # (batch_size, n_samples)
+        accuracies = correct_predictions.float().mean(dim=1)  # (batch_size,)
+
+        # Logit similarity: (batch_size,)
+        mse_per_circuit = ((model_pred_expanded - sk_predictions_batch) ** 2).mean(dim=(1, 2))
+        logit_similarities = 1 - mse_per_circuit
+
+        # Bit prediction similarity: (batch_size,)
+        same_predictions = (bit_model_pred_expanded == bit_sk_pred_batch).float().mean(dim=(1, 2))
+
+    # Prepare results
     results = []
-
-    # Process each circuit (could be optimized further with vectorization)
     for circuit_idx, circuit in enumerate(circuits):
-        # Apply circuit masks to get predictions
-        with torch.no_grad():
-            sk_predictions = model(x, circuit=circuit)
-            bit_sk_pred = torch.round(sk_predictions)
+        # Compute circuit sparsity (this is CPU-bound, can't be easily batched)
+        sk_sparsity_node_sparsity, sk_edge_sparsity, sk_combined_sparsity = circuit.sparsity()
 
-            # Compute the accuracy with respect to the task
-            correct_predictions = bit_sk_pred.eq(y).all(dim=1)
-            accuracy = correct_predictions.sum().item() / y.size(0)
-
-            # Compute similarity with model prediction based on logits
-            logit_similarity = 1 - nn.MSELoss()(model_predictions, sk_predictions).item()
-
-            # Compute similarity with model prediction
-            same_predictions = torch.sum(bit_model_pred == bit_sk_pred).item()
-            total_predictions = bit_model_pred.shape[0]
-            similarity_bit_preds = same_predictions / total_predictions
-
-            # Compute circuit sparsity
-            sk_sparsity_node_sparsity, sk_edge_sparsity, sk_combined_sparsity = circuit.sparsity()
-
-            results.append({
-                'circuit_idx': start_idx + circuit_idx,
-                'accuracy': accuracy,
-                'logit_similarity': logit_similarity,
-                'similarity_bit_preds': similarity_bit_preds,
-                'sk_sparsity': sk_combined_sparsity,
-                'sk_sparsity_node_sparsity': sk_sparsity_node_sparsity,
-                'sk_edge_sparsity': sk_edge_sparsity,
-            })
-
-    # Restore original weights
-    for i, layer in enumerate(model.layers):
-        layer[0].weight.data = original_weights[i]
+        results.append({
+            'circuit_idx': start_idx + circuit_idx,
+            'accuracy': accuracies[circuit_idx].item(),
+            'logit_similarity': logit_similarities[circuit_idx].item(),
+            'similarity_bit_preds': same_predictions[circuit_idx].item(),
+            'sk_sparsity': sk_combined_sparsity,
+            'sk_sparsity_node_sparsity': sk_sparsity_node_sparsity,
+            'sk_edge_sparsity': sk_edge_sparsity,
+        })
 
     return results
 
