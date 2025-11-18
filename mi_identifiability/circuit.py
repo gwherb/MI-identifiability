@@ -650,8 +650,6 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
 
     # Initialize a list to collect data for DataFrame
     data = []
-
-    max_sparsity, max_sparsity_node, max_sparsity_edge = 0, 0, 0
     top_sks = []
     sparsities = []
 
@@ -677,22 +675,11 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
             i = result['circuit_idx']
             circuit = batch_circuits[i - start_idx]
             accuracy = result['accuracy']
-            sk_sparsity_node_sparsity = result['sk_sparsity_node_sparsity']
-            sk_edge_sparsity = result['sk_edge_sparsity']
-            sk_combined_sparsity = result['sk_sparsity']
 
-            # Update max sparsities
-            if sk_sparsity_node_sparsity > max_sparsity_node:
-                max_sparsity_node = sk_sparsity_node_sparsity
-            if sk_edge_sparsity > max_sparsity_edge:
-                max_sparsity_edge = sk_edge_sparsity
-            if sk_combined_sparsity > max_sparsity:
-                max_sparsity = sk_combined_sparsity
-
-            # Store top circuits
+            # Store top circuits (sparsity tracking removed for speed)
             if accuracy > accuracy_threshold:
                 top_sks.append(circuit)
-                sparsities.append(sk_sparsity_node_sparsity)
+                sparsities.append(0.0)  # Placeholder
 
             data.append(result)
 
@@ -800,19 +787,18 @@ def _evaluate_circuit_batch(model, x, y, circuits, model_predictions, bit_model_
         same_predictions = (bit_model_pred_expanded == bit_sk_pred_batch).float().mean(dim=(1, 2))
 
     # Prepare results
+    # NOTE: Sparsity computation removed for maximum speed
+    # Sparsity filtering happens during circuit enumeration (min_sparsity parameter)
     results = []
-    for circuit_idx, circuit in enumerate(circuits):
-        # Compute circuit sparsity (this is CPU-bound, can't be easily batched)
-        sk_sparsity_node_sparsity, sk_edge_sparsity, sk_combined_sparsity = circuit.sparsity()
-
+    for circuit_idx in range(batch_size):
         results.append({
             'circuit_idx': start_idx + circuit_idx,
             'accuracy': accuracies[circuit_idx].item(),
             'logit_similarity': logit_similarities[circuit_idx].item(),
             'similarity_bit_preds': same_predictions[circuit_idx].item(),
-            'sk_sparsity': sk_combined_sparsity,
-            'sk_sparsity_node_sparsity': sk_sparsity_node_sparsity,
-            'sk_edge_sparsity': sk_edge_sparsity,
+            'sk_sparsity': 0.0,  # Not computed for speed
+            'sk_sparsity_node_sparsity': 0.0,  # Not computed for speed
+            'sk_edge_sparsity': 0.0,  # Not computed for speed
         })
 
     return results

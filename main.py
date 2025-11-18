@@ -108,11 +108,9 @@ def run_experiment(logger, output_dir, run_dir, args):
                 logger.info(f"No convergence - k={k}, seed={seed_offset}, loss={avg_loss}/{loss_target}, acc={val_acc}")
                 continue
 
-            min_sparsity = args.min_sparsity
-            if k > 3:
-                min_sparsity = 0.2
-            if k > 4:
-                min_sparsity = 0.3
+            # Set min_sparsity to 0 to evaluate all circuits (no filtering)
+            # This allows us to see the full effect of regularization on circuit counts
+            min_sparsity = 0.0
 
             n_circuits = []
 
