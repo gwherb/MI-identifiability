@@ -97,9 +97,10 @@ def run_experiment(logger, output_dir, run_dir, args):
                 epochs=args.epochs,
                 loss_target=loss_target,
                 val_frequency=args.val_frequency,
+                early_stopping_steps=args.early_stopping_steps,
                 logger=logger if args.verbose else None,
-                l1_lambda=args.l1_lambda,  # NEW
-                l2_lambda=args.l2_lambda   # NEW
+                l1_lambda=args.l1_lambda,
+                l2_lambda=args.l2_lambda
             )
 
             val_acc = model.do_eval(x_val, y_val)
@@ -188,6 +189,8 @@ if __name__ == "__main__":
     parser.add_argument('--accuracy-threshold', type=float, default=0.99,
                         help='The accuracy threshold for circuit search')
     parser.add_argument('--val-frequency', type=int, default=10, help='Frequency of validation during training')
+    parser.add_argument('--early-stopping-steps', type=int, default=30,
+                        help='Number of epochs without improvement before stopping training (default: 30)')
     parser.add_argument('--verbose', action='store_true', help='Whether to display extra information')
     parser.add_argument('--resume-from', type=str, default=None, help='Resume from a previous run')
 
