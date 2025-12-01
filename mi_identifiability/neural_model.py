@@ -328,15 +328,16 @@ class MLP(nn.Module):
 
     def do_train(self, x, y, x_val, y_val, batch_size, learning_rate, epochs,
                 loss_target=0.001, val_frequency=10, early_stopping_steps=30,
-                logger=None, l1_lambda=0.0, l2_lambda=0.0):
+                logger=None, l1_lambda=0.0, l2_lambda=0.0, convergence_tracker=None):
         """
         Train the model using the given data and hyperparameters.
-        
+
         Args:
             ... (existing args) ...
             l1_lambda: L1 regularization coefficient (0.0 = no L1)
             l2_lambda: L2 regularization coefficient (0.0 = no L2)
-        
+            convergence_tracker: Optional ConvergenceTracker to monitor circuit emergence
+
         Returns:
             The average loss after training
         """
@@ -390,6 +391,10 @@ class MLP(nn.Module):
                 bad_epochs = 0
             else:
                 bad_epochs += 1
+
+            # Track convergence if tracker is provided
+            if convergence_tracker is not None and convergence_tracker.should_track(epoch):
+                convergence_tracker.track_epoch(epoch, self, logger)
 
             # Early stopping
             if avg_loss < loss_target or bad_epochs >= early_stopping_steps:

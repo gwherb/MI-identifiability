@@ -13,6 +13,7 @@ from mi_identifiability.mappings import find_minimal_mappings
 from mi_identifiability.logic_gates import ALL_LOGIC_GATES, generate_noisy_multi_gate_data, get_formula_dataset
 from mi_identifiability.neural_model import MLP
 from mi_identifiability.utils import setup_logging, set_seeds
+from mi_identifiability.convergence_tracker import ConvergenceTracker
 
 
 def run_experiment(logger, output_dir, run_dir, args):
@@ -76,15 +77,29 @@ def run_experiment(logger, output_dir, run_dir, args):
                 continue
 
             layer_sizes = [2] + [k] * depth + [n_gates]
-            
+
             # Create model with regularization parameters
             model = MLP(
-                hidden_sizes=layer_sizes[1:-1], 
-                input_size=n_inputs, 
-                output_size=n_gates, 
+                hidden_sizes=layer_sizes[1:-1],
+                input_size=n_inputs,
+                output_size=n_gates,
                 device=args.device,
                 dropout_rate=args.dropout_rate  # NEW
             )
+
+            # Create convergence tracker if requested
+            convergence_tracker = None
+            if args.track_convergence:
+                min_sparsity_for_tracking = args.min_sparsity if args.min_sparsity is not None else 0.0
+                convergence_tracker = ConvergenceTracker(
+                    tracking_frequency=args.convergence_frequency,
+                    x_val=x_val,
+                    y_val=y_val,
+                    accuracy_threshold=args.accuracy_threshold,
+                    min_sparsity=min_sparsity_for_tracking,
+                    use_gpu_batching=args.use_gpu_batching,
+                    gpu_batch_size=args.gpu_batch_size
+                )
 
             # Train with regularization
             avg_loss = model.do_train(
@@ -100,7 +115,8 @@ def run_experiment(logger, output_dir, run_dir, args):
                 early_stopping_steps=args.early_stopping_steps,
                 logger=logger if args.verbose else None,
                 l1_lambda=args.l1_lambda,
-                l2_lambda=args.l2_lambda
+                l2_lambda=args.l2_lambda,
+                convergence_tracker=convergence_tracker
             )
 
             val_acc = model.do_eval(x_val, y_val)
@@ -136,7 +152,7 @@ def run_experiment(logger, output_dir, run_dir, args):
                     sample_top_circuits = top_circuits
 
             # Add regularization info to saved data
-            data.append({
+            result_entry = {
                 'gates': ' '.join(lg.name for lg in gates),
                 'n_gates': n_gates,
                 'sizes': k,
@@ -149,7 +165,30 @@ def run_experiment(logger, output_dir, run_dir, args):
                 'l1_lambda': args.l1_lambda,  # NEW
                 'l2_lambda': args.l2_lambda,  # NEW
                 'dropout_rate': args.dropout_rate  # NEW
-            })
+            }
+
+            # Save convergence tracking data if enabled
+            if args.track_convergence and convergence_tracker is not None:
+                convergence_data = convergence_tracker.to_dict()
+                result_entry['convergence_epochs'] = convergence_data['epochs']
+                result_entry['convergence_circuit_counts'] = convergence_data['circuit_counts']
+                result_entry['convergence_avg_sparsities'] = convergence_data['avg_sparsities']
+                result_entry['convergence_total_circuits'] = convergence_data['total_circuits']
+
+                # Also save detailed convergence data to a separate file
+                convergence_filename = f"convergence_k{k}_seed{seed_offset}_depth{depth}_lr{lr}_loss{loss_target}.csv"
+                convergence_df = pd.DataFrame({
+                    'epoch': convergence_data['epochs'],
+                    'circuit_counts': convergence_data['circuit_counts'],
+                    'avg_sparsities': convergence_data['avg_sparsities'],
+                    'total_circuits': convergence_data['total_circuits'],
+                    'l1_lambda': args.l1_lambda,
+                    'l2_lambda': args.l2_lambda,
+                    'dropout_rate': args.dropout_rate
+                })
+                convergence_df.to_csv(os.path.join(run_dir, convergence_filename), index=False)
+
+            data.append(result_entry)
             pd.DataFrame(data).to_csv(os.path.join(run_dir, 'data_tmp.csv'), index=False)
 
     return run_dir, pd.DataFrame(data)
@@ -207,6 +246,12 @@ if __name__ == "__main__":
                         help='Use GPU batching for faster circuit discovery')
     parser.add_argument('--gpu-batch-size', type=int, default=128,
                         help='Batch size for GPU circuit evaluation (default: 128)')
+
+    # Convergence tracking arguments
+    parser.add_argument('--track-convergence', action='store_true',
+                        help='Track circuit emergence during training')
+    parser.add_argument('--convergence-frequency', type=int, default=10,
+                        help='How often to track circuits during training (in epochs, default: 10)')
 
     args = parser.parse_args()
     output_dir = Path('logs')
