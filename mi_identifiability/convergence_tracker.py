@@ -62,13 +62,15 @@ class ConvergenceTracker:
         """
         return (epoch + 1) % self.tracking_frequency == 0
 
-    def track_epoch(self, epoch, model, logger=None):
+    def track_epoch(self, epoch, model, train_loss=None, val_loss=None, logger=None):
         """
         Track circuits at the current epoch.
 
         Args:
             epoch: Current training epoch
             model: The neural network model
+            train_loss: Optional training loss at this epoch
+            val_loss: Optional validation loss at this epoch
             logger: Optional logger for progress messages
 
         Returns:
@@ -115,7 +117,9 @@ class ConvergenceTracker:
             'epoch': epoch + 1,
             'circuit_counts': all_circuit_counts,
             'avg_sparsities': all_avg_sparsities,
-            'total_circuits': sum(all_circuit_counts)
+            'total_circuits': sum(all_circuit_counts),
+            'train_loss': train_loss,
+            'val_loss': val_loss
         }
 
         self.history.append(checkpoint)
@@ -136,19 +140,23 @@ class ConvergenceTracker:
         Convert history to a dictionary suitable for DataFrame creation.
 
         Returns:
-            Dictionary with epochs, circuit counts, and sparsities as lists
+            Dictionary with epochs, circuit counts, sparsities, and losses as lists
         """
         if not self.history:
             return {
                 'epochs': [],
                 'circuit_counts': [],
                 'avg_sparsities': [],
-                'total_circuits': []
+                'total_circuits': [],
+                'train_losses': [],
+                'val_losses': []
             }
 
         return {
             'epochs': [h['epoch'] for h in self.history],
             'circuit_counts': [h['circuit_counts'] for h in self.history],
             'avg_sparsities': [h['avg_sparsities'] for h in self.history],
-            'total_circuits': [h['total_circuits'] for h in self.history]
+            'total_circuits': [h['total_circuits'] for h in self.history],
+            'train_losses': [h.get('train_loss', None) for h in self.history],
+            'val_losses': [h.get('val_loss', None) for h in self.history]
         }

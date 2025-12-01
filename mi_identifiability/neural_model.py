@@ -394,7 +394,12 @@ class MLP(nn.Module):
 
             # Track convergence if tracker is provided
             if convergence_tracker is not None and convergence_tracker.should_track(epoch):
-                convergence_tracker.track_epoch(epoch, self, logger)
+                # Compute validation loss for tracking
+                self.eval()
+                with torch.no_grad():
+                    val_outputs = self(x_val)
+                    val_loss_for_tracking = criterion(val_outputs, y_val).item()
+                convergence_tracker.track_epoch(epoch, self, train_loss=avg_loss, val_loss=val_loss_for_tracking, logger=logger)
 
             # Early stopping
             if avg_loss < loss_target or bad_epochs >= early_stopping_steps:

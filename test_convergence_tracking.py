@@ -98,21 +98,25 @@ def test_convergence_tracking():
 
     if history:
         print("\nCheckpoint Summary:")
-        print(f"{'Epoch':<10} {'Total Circuits':<15} {'Avg Sparsity':<15}")
-        print("-" * 40)
+        print(f"{'Epoch':<10} {'Circuits':<10} {'Sparsity':<12} {'Train Loss':<12} {'Val Loss':<12}")
+        print("-" * 56)
         for checkpoint in history:
             epoch = checkpoint['epoch']
             total_circuits = checkpoint['total_circuits']
             avg_sparsities = checkpoint['avg_sparsities']
             avg_sparsity = avg_sparsities[0] if len(avg_sparsities) > 0 else 0.0
+            train_loss = checkpoint.get('train_loss', 0.0)
+            val_loss = checkpoint.get('val_loss', 0.0)
 
-            print(f"{epoch:<10} {total_circuits:<15} {avg_sparsity:<15.4f}")
+            print(f"{epoch:<10} {total_circuits:<10} {avg_sparsity:<12.4f} {train_loss:<12.4f} {val_loss:<12.4f}")
 
         # Verify data integrity
         data_dict = tracker.to_dict()
         assert len(data_dict['epochs']) == len(history), "Epochs mismatch"
         assert len(data_dict['circuit_counts']) == len(history), "Circuit counts mismatch"
         assert len(data_dict['avg_sparsities']) == len(history), "Sparsities mismatch"
+        assert len(data_dict['train_losses']) == len(history), "Train losses mismatch"
+        assert len(data_dict['val_losses']) == len(history), "Val losses mismatch"
 
         print("\n✓ Data integrity check passed")
 
@@ -120,6 +124,13 @@ def test_convergence_tracking():
         final_checkpoint = history[-1]
         if final_checkpoint['total_circuits'] > 0:
             print(f"✓ Successfully found {final_checkpoint['total_circuits']} circuits")
+
+            # Check that sparsity is non-zero
+            final_sparsity = final_checkpoint['avg_sparsities'][0] if len(final_checkpoint['avg_sparsities']) > 0 else 0.0
+            if final_sparsity > 0.0:
+                print(f"✓ Average sparsity is {final_sparsity:.4f} (non-zero, bug fixed!)")
+            else:
+                print(f"⚠ Warning: Sparsity is still 0.0 (check circuit.py fix)")
         else:
             print("⚠ Warning: No circuits found (model may not have converged)")
 

@@ -732,10 +732,12 @@ def find_circuits_batched_gpu(model: MLP, x, y, accuracy_threshold, min_sparsity
             circuit = batch_circuits[i - start_idx]
             accuracy = result['accuracy']
 
-            # Store top circuits (sparsity tracking removed for speed)
+            # Store top circuits with actual sparsity
             if accuracy > accuracy_threshold:
                 top_sks.append(circuit)
-                sparsities.append(0.0)  # Placeholder
+                # Calculate sparsity for this circuit
+                sk_sparsity_node_sparsity, sk_edge_sparsity, sk_combined_sparsity = circuit.sparsity()
+                sparsities.append(sk_sparsity_node_sparsity)
 
             data.append(result)
 

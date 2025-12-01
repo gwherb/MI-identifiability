@@ -174,6 +174,8 @@ def run_experiment(logger, output_dir, run_dir, args):
                 result_entry['convergence_circuit_counts'] = convergence_data['circuit_counts']
                 result_entry['convergence_avg_sparsities'] = convergence_data['avg_sparsities']
                 result_entry['convergence_total_circuits'] = convergence_data['total_circuits']
+                result_entry['convergence_train_losses'] = convergence_data['train_losses']
+                result_entry['convergence_val_losses'] = convergence_data['val_losses']
 
                 # Also save detailed convergence data to a separate file
                 convergence_filename = f"convergence_k{k}_seed{seed_offset}_depth{depth}_lr{lr}_loss{loss_target}.csv"
@@ -182,6 +184,8 @@ def run_experiment(logger, output_dir, run_dir, args):
                     'circuit_counts': convergence_data['circuit_counts'],
                     'avg_sparsities': convergence_data['avg_sparsities'],
                     'total_circuits': convergence_data['total_circuits'],
+                    'train_loss': convergence_data['train_losses'],
+                    'val_loss': convergence_data['val_losses'],
                     'l1_lambda': args.l1_lambda,
                     'l2_lambda': args.l2_lambda,
                     'dropout_rate': args.dropout_rate

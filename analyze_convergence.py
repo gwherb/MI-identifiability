@@ -53,13 +53,15 @@ def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis'):
 
     # Create visualizations
     print("\nGenerating visualizations...")
-    circuits_fig, sparsity_fig = plot_combined_convergence(
+    circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig = plot_combined_convergence(
         organized_data,
         output_dir=output_path
     )
 
     print(f"  - Saved circuits plot to: {output_path / 'circuits_vs_epochs.png'}")
     print(f"  - Saved sparsity plot to: {output_path / 'sparsity_vs_epochs.png'}")
+    print(f"  - Saved training loss plot to: {output_path / 'train_loss_vs_epochs.png'}")
+    print(f"  - Saved validation loss plot to: {output_path / 'val_loss_vs_epochs.png'}")
 
     # Create summary table
     summary_df = create_convergence_summary(organized_data)
@@ -74,7 +76,9 @@ def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis'):
         'organized_data': organized_data,
         'summary': summary_df,
         'circuits_fig': circuits_fig,
-        'sparsity_fig': sparsity_fig
+        'sparsity_fig': sparsity_fig,
+        'train_loss_fig': train_loss_fig,
+        'val_loss_fig': val_loss_fig
     }
 
 
