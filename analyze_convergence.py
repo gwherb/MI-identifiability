@@ -25,13 +25,14 @@ from mi_identifiability.convergence_visualization import (
 )
 
 
-def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis'):
+def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis', max_epoch=None):
     """
     Analyze convergence data from specified run directories.
 
     Args:
         run_dirs: List of paths to run directories (strings or Path objects)
         output_dir: Directory to save analysis outputs
+        max_epoch: Maximum epoch to display in plots (None for all epochs)
 
     Returns:
         Dictionary with summary statistics and figure objects
@@ -53,15 +54,17 @@ def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis'):
 
     # Create visualizations
     print("\nGenerating visualizations...")
-    circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig = plot_combined_convergence(
+    circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig, combined_grid_fig = plot_combined_convergence(
         organized_data,
-        output_dir=output_path
+        output_dir=output_path,
+        max_epoch=max_epoch
     )
 
     print(f"  - Saved circuits plot to: {output_path / 'circuits_vs_epochs.png'}")
     print(f"  - Saved sparsity plot to: {output_path / 'sparsity_vs_epochs.png'}")
     print(f"  - Saved training loss plot to: {output_path / 'train_loss_vs_epochs.png'}")
     print(f"  - Saved validation loss plot to: {output_path / 'val_loss_vs_epochs.png'}")
+    print(f"  - Saved combined grid plot to: {output_path / 'combined_grid.png'}")
 
     # Create summary table
     summary_df = create_convergence_summary(organized_data)
@@ -78,7 +81,8 @@ def analyze_convergence_from_dirs(run_dirs, output_dir='convergence_analysis'):
         'circuits_fig': circuits_fig,
         'sparsity_fig': sparsity_fig,
         'train_loss_fig': train_loss_fig,
-        'val_loss_fig': val_loss_fig
+        'val_loss_fig': val_loss_fig,
+        'combined_grid_fig': combined_grid_fig
     }
 
 
@@ -119,6 +123,8 @@ def main():
                        help='Automatically find all runs with convergence data')
     parser.add_argument('--output-dir', type=str, default='convergence_analysis',
                        help='Output directory for analysis results (default: convergence_analysis)')
+    parser.add_argument('--max-epoch', type=int, default=None,
+                       help='Maximum epoch to display in plots (default: all epochs)')
 
     args = parser.parse_args()
 
@@ -140,7 +146,7 @@ def main():
         return
 
     # Perform analysis
-    results = analyze_convergence_from_dirs(run_dirs, args.output_dir)
+    results = analyze_convergence_from_dirs(run_dirs, args.output_dir, max_epoch=args.max_epoch)
 
     print("\n" + "="*60)
     print("Analysis complete!")

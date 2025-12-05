@@ -33,7 +33,7 @@ def load_convergence_data(run_dir, pattern="convergence_*.csv"):
     return data
 
 
-def plot_circuits_vs_epochs(convergence_data_dict, output_path=None, title="Circuit Emergence During Training"):
+def plot_circuits_vs_epochs(convergence_data_dict, output_path=None, title="Circuit Emergence During Training", max_epoch=None):
     """
     Plot number of circuits vs training epochs for different regularization methods.
 
@@ -42,6 +42,7 @@ def plot_circuits_vs_epochs(convergence_data_dict, output_path=None, title="Circ
                               e.g., {'Normal': [df1, df2], 'L1': [df3, df4], ...}
         output_path: Optional path to save the figure
         title: Plot title
+        max_epoch: Maximum epoch to display (None for all epochs)
 
     Returns:
         matplotlib figure
@@ -78,6 +79,11 @@ def plot_circuits_vs_epochs(convergence_data_dict, output_path=None, title="Circ
             epoch_data[epoch].append(circuits)
 
         epochs = sorted(epoch_data.keys())
+
+        # Filter to max_epoch if specified
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
         mean_circuits = [np.mean(epoch_data[e]) for e in epochs]
         std_circuits = [np.std(epoch_data[e]) for e in epochs]
 
@@ -106,7 +112,7 @@ def plot_circuits_vs_epochs(convergence_data_dict, output_path=None, title="Circ
     return fig
 
 
-def plot_sparsity_vs_epochs(convergence_data_dict, output_path=None, title="Circuit Sparsity During Training"):
+def plot_sparsity_vs_epochs(convergence_data_dict, output_path=None, title="Circuit Sparsity During Training", max_epoch=None):
     """
     Plot average circuit sparsity vs training epochs for different regularization methods.
 
@@ -114,6 +120,7 @@ def plot_sparsity_vs_epochs(convergence_data_dict, output_path=None, title="Circ
         convergence_data_dict: Dictionary mapping regularization names to list of DataFrames
         output_path: Optional path to save the figure
         title: Plot title
+        max_epoch: Maximum epoch to display (None for all epochs)
 
     Returns:
         matplotlib figure
@@ -160,6 +167,11 @@ def plot_sparsity_vs_epochs(convergence_data_dict, output_path=None, title="Circ
             epoch_data[epoch].append(sparsity)
 
         epochs = sorted(epoch_data.keys())
+
+        # Filter to max_epoch if specified
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
         mean_sparsity = [np.mean(epoch_data[e]) for e in epochs]
         std_sparsity = [np.std(epoch_data[e]) for e in epochs]
 
@@ -188,7 +200,7 @@ def plot_sparsity_vs_epochs(convergence_data_dict, output_path=None, title="Circ
     return fig
 
 
-def plot_loss_vs_epochs(convergence_data_dict, loss_type='val', output_path=None, title=None):
+def plot_loss_vs_epochs(convergence_data_dict, loss_type='val', output_path=None, title=None, max_epoch=None):
     """
     Plot training or validation loss vs epochs for different regularization methods.
 
@@ -197,6 +209,7 @@ def plot_loss_vs_epochs(convergence_data_dict, loss_type='val', output_path=None
         loss_type: 'train' or 'val' to plot training or validation loss
         output_path: Optional path to save the figure
         title: Plot title (auto-generated if None)
+        max_epoch: Maximum epoch to display (None for all epochs)
 
     Returns:
         matplotlib figure
@@ -243,6 +256,11 @@ def plot_loss_vs_epochs(convergence_data_dict, loss_type='val', output_path=None
             epoch_data[epoch].append(loss)
 
         epochs = sorted(epoch_data.keys())
+
+        # Filter to max_epoch if specified
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
         mean_loss = [np.mean(epoch_data[e]) for e in epochs]
         std_loss = [np.std(epoch_data[e]) for e in epochs]
 
@@ -272,40 +290,270 @@ def plot_loss_vs_epochs(convergence_data_dict, loss_type='val', output_path=None
     return fig
 
 
-def plot_combined_convergence(convergence_data_dict, output_dir=None):
+def plot_combined_grid(convergence_data_dict, output_path=None, max_epoch=None):
+    """
+    Create a 2x2 grid figure with all four plots combined.
+
+    Args:
+        convergence_data_dict: Dictionary mapping regularization names to list of DataFrames
+        output_path: Optional path to save the combined figure
+        max_epoch: Maximum epoch to display (None for all epochs)
+
+    Returns:
+        matplotlib figure
+    """
+    fig, axes = plt.subplots(2, 2, figsize=(20, 14))
+
+    colors = {
+        'Normal': '#1f77b4',
+        'L1': '#ff7f0e',
+        'L2': '#2ca02c',
+        'Dropout': '#d62728'
+    }
+
+    # Top left: Circuits
+    ax = axes[0, 0]
+    for reg_name, dfs in convergence_data_dict.items():
+        if not dfs:
+            continue
+
+        all_epochs = []
+        all_circuits = []
+
+        for df in dfs:
+            all_epochs.extend(df['epoch'].tolist())
+            all_circuits.extend(df['total_circuits'].tolist())
+
+        if not all_epochs:
+            continue
+
+        epoch_data = {}
+        for epoch, circuits in zip(all_epochs, all_circuits):
+            if epoch not in epoch_data:
+                epoch_data[epoch] = []
+            epoch_data[epoch].append(circuits)
+
+        epochs = sorted(epoch_data.keys())
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
+        mean_circuits = [np.mean(epoch_data[e]) for e in epochs]
+        std_circuits = [np.std(epoch_data[e]) for e in epochs]
+
+        color = colors.get(reg_name, None)
+        ax.plot(epochs, mean_circuits, label=reg_name, linewidth=2, color=color, marker='o', markersize=4)
+        ax.fill_between(epochs,
+                        np.array(mean_circuits) - np.array(std_circuits),
+                        np.array(mean_circuits) + np.array(std_circuits),
+                        alpha=0.2, color=color)
+
+    ax.set_xlabel('Training Epoch', fontsize=12)
+    ax.set_ylabel('Number of Perfect Circuits', fontsize=12)
+    ax.set_title('Circuit Emergence During Training', fontsize=14, fontweight='bold')
+    ax.legend(fontsize=11, loc='best')
+    ax.grid(True, alpha=0.3)
+
+    # Top right: Sparsity
+    ax = axes[0, 1]
+    for reg_name, dfs in convergence_data_dict.items():
+        if not dfs:
+            continue
+
+        all_epochs = []
+        all_sparsities = []
+
+        for df in dfs:
+            for idx, row in df.iterrows():
+                epoch = row['epoch']
+                sparsities = eval(row['avg_sparsities']) if isinstance(row['avg_sparsities'], str) else row['avg_sparsities']
+
+                if isinstance(sparsities, list) and len(sparsities) > 0:
+                    avg_sparsity = np.mean(sparsities)
+                else:
+                    avg_sparsity = sparsities if not isinstance(sparsities, list) else 0.0
+
+                all_epochs.append(epoch)
+                all_sparsities.append(avg_sparsity)
+
+        if not all_epochs:
+            continue
+
+        epoch_data = {}
+        for epoch, sparsity in zip(all_epochs, all_sparsities):
+            if epoch not in epoch_data:
+                epoch_data[epoch] = []
+            epoch_data[epoch].append(sparsity)
+
+        epochs = sorted(epoch_data.keys())
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
+        mean_sparsity = [np.mean(epoch_data[e]) for e in epochs]
+        std_sparsity = [np.std(epoch_data[e]) for e in epochs]
+
+        color = colors.get(reg_name, None)
+        ax.plot(epochs, mean_sparsity, label=reg_name, linewidth=2, color=color, marker='o', markersize=4)
+        ax.fill_between(epochs,
+                        np.array(mean_sparsity) - np.array(std_sparsity),
+                        np.array(mean_sparsity) + np.array(std_sparsity),
+                        alpha=0.2, color=color)
+
+    ax.set_xlabel('Training Epoch', fontsize=12)
+    ax.set_ylabel('Average Circuit Sparsity', fontsize=12)
+    ax.set_title('Circuit Sparsity During Training', fontsize=14, fontweight='bold')
+    ax.legend(fontsize=11, loc='best')
+    ax.grid(True, alpha=0.3)
+
+    # Bottom left: Training Loss
+    ax = axes[1, 0]
+    for reg_name, dfs in convergence_data_dict.items():
+        if not dfs:
+            continue
+
+        all_epochs = []
+        all_losses = []
+
+        for df in dfs:
+            if 'train_loss' in df.columns:
+                for idx, row in df.iterrows():
+                    epoch = row['epoch']
+                    loss = row['train_loss']
+                    if loss is not None and not np.isnan(loss):
+                        all_epochs.append(epoch)
+                        all_losses.append(loss)
+
+        if not all_epochs:
+            continue
+
+        epoch_data = {}
+        for epoch, loss in zip(all_epochs, all_losses):
+            if epoch not in epoch_data:
+                epoch_data[epoch] = []
+            epoch_data[epoch].append(loss)
+
+        epochs = sorted(epoch_data.keys())
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
+        mean_loss = [np.mean(epoch_data[e]) for e in epochs]
+        std_loss = [np.std(epoch_data[e]) for e in epochs]
+
+        color = colors.get(reg_name, None)
+        ax.plot(epochs, mean_loss, label=reg_name, linewidth=2, color=color, marker='o', markersize=4)
+        ax.fill_between(epochs,
+                        np.array(mean_loss) - np.array(std_loss),
+                        np.array(mean_loss) + np.array(std_loss),
+                        alpha=0.2, color=color)
+
+    ax.set_xlabel('Training Epoch', fontsize=12)
+    ax.set_ylabel('Training Loss', fontsize=12)
+    ax.set_title('Training Loss During Training', fontsize=14, fontweight='bold')
+    ax.legend(fontsize=11, loc='best')
+    ax.grid(True, alpha=0.3)
+    ax.set_yscale('log')
+
+    # Bottom right: Validation Loss
+    ax = axes[1, 1]
+    for reg_name, dfs in convergence_data_dict.items():
+        if not dfs:
+            continue
+
+        all_epochs = []
+        all_losses = []
+
+        for df in dfs:
+            if 'val_loss' in df.columns:
+                for idx, row in df.iterrows():
+                    epoch = row['epoch']
+                    loss = row['val_loss']
+                    if loss is not None and not np.isnan(loss):
+                        all_epochs.append(epoch)
+                        all_losses.append(loss)
+
+        if not all_epochs:
+            continue
+
+        epoch_data = {}
+        for epoch, loss in zip(all_epochs, all_losses):
+            if epoch not in epoch_data:
+                epoch_data[epoch] = []
+            epoch_data[epoch].append(loss)
+
+        epochs = sorted(epoch_data.keys())
+        if max_epoch is not None:
+            epochs = [e for e in epochs if e <= max_epoch]
+
+        mean_loss = [np.mean(epoch_data[e]) for e in epochs]
+        std_loss = [np.std(epoch_data[e]) for e in epochs]
+
+        color = colors.get(reg_name, None)
+        ax.plot(epochs, mean_loss, label=reg_name, linewidth=2, color=color, marker='o', markersize=4)
+        ax.fill_between(epochs,
+                        np.array(mean_loss) - np.array(std_loss),
+                        np.array(mean_loss) + np.array(std_loss),
+                        alpha=0.2, color=color)
+
+    ax.set_xlabel('Training Epoch', fontsize=12)
+    ax.set_ylabel('Validation Loss', fontsize=12)
+    ax.set_title('Validation Loss During Training', fontsize=14, fontweight='bold')
+    ax.legend(fontsize=11, loc='best')
+    ax.grid(True, alpha=0.3)
+    ax.set_yscale('log')
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+    return fig
+
+
+def plot_combined_convergence(convergence_data_dict, output_dir=None, max_epoch=None):
     """
     Create a combined figure with circuit count, sparsity, and loss plots.
 
     Args:
         convergence_data_dict: Dictionary mapping regularization names to list of DataFrames
         output_dir: Optional directory to save the figures
+        max_epoch: Maximum epoch to display (None for all epochs)
 
     Returns:
-        Tuple of (circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig)
+        Tuple of (circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig, combined_grid_fig)
     """
     circuits_fig = plot_circuits_vs_epochs(
         convergence_data_dict,
-        output_path=Path(output_dir) / "circuits_vs_epochs.png" if output_dir else None
+        output_path=Path(output_dir) / "circuits_vs_epochs.png" if output_dir else None,
+        max_epoch=max_epoch
     )
 
     sparsity_fig = plot_sparsity_vs_epochs(
         convergence_data_dict,
-        output_path=Path(output_dir) / "sparsity_vs_epochs.png" if output_dir else None
+        output_path=Path(output_dir) / "sparsity_vs_epochs.png" if output_dir else None,
+        max_epoch=max_epoch
     )
 
     train_loss_fig = plot_loss_vs_epochs(
         convergence_data_dict,
         loss_type='train',
-        output_path=Path(output_dir) / "train_loss_vs_epochs.png" if output_dir else None
+        output_path=Path(output_dir) / "train_loss_vs_epochs.png" if output_dir else None,
+        max_epoch=max_epoch
     )
 
     val_loss_fig = plot_loss_vs_epochs(
         convergence_data_dict,
         loss_type='val',
-        output_path=Path(output_dir) / "val_loss_vs_epochs.png" if output_dir else None
+        output_path=Path(output_dir) / "val_loss_vs_epochs.png" if output_dir else None,
+        max_epoch=max_epoch
     )
 
-    return circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig
+    # Create combined grid
+    combined_grid_fig = plot_combined_grid(
+        convergence_data_dict,
+        output_path=Path(output_dir) / "combined_grid.png" if output_dir else None,
+        max_epoch=max_epoch
+    )
+
+    return circuits_fig, sparsity_fig, train_loss_fig, val_loss_fig, combined_grid_fig
 
 
 def organize_data_by_regularization(run_dirs):

@@ -54,7 +54,7 @@ print("="*60)
     --min-sparsity 0 \
     --use-gpu-batching \
     --gpu-batch-size 4096 \
-    --n-experiments 10 --size 3 --depth 2 \
+    --n-experiments 25 --size 3 --depth 2 \
     --track-convergence \
     --convergence-frequency 20 \
     --device {DEVICE}
