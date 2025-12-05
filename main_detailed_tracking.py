@@ -180,13 +180,23 @@ def run_experiment(logger, output_dir, run_dir, args):
 
             # Save detailed circuit tracking data if enabled
             if args.track_detailed_circuits and detailed_tracker is not None:
-                # Save to JSON for detailed animation data
-                detailed_filename = f"detailed_circuits_k{k}_seed{seed_offset}_depth{depth}_lr{lr}_loss{loss_target}.json"
+                # Determine regularization identifier
+                if args.l1_lambda > 0:
+                    reg_id = f"l1_{args.l1_lambda}"
+                elif args.l2_lambda > 0:
+                    reg_id = f"l2_{args.l2_lambda}"
+                elif args.dropout_rate > 0:
+                    reg_id = f"dropout_{args.dropout_rate}"
+                else:
+                    reg_id = "baseline"
+
+                # Save to JSON for detailed animation data with simplified naming
+                detailed_filename = f"detailed_circuits_seed{seed_offset}_{reg_id}.json"
                 detailed_tracker.save_to_json(os.path.join(run_dir, detailed_filename))
 
                 # Also save a summary CSV (compatible with original convergence tracking)
                 summary_data = detailed_tracker.to_summary_dict()
-                convergence_filename = f"convergence_k{k}_seed{seed_offset}_depth{depth}_lr{lr}_loss{loss_target}.csv"
+                convergence_filename = f"convergence_seed{seed_offset}_{reg_id}.csv"
                 convergence_df = pd.DataFrame({
                     'epoch': summary_data['epochs'],
                     'circuit_counts': summary_data['circuit_counts'],

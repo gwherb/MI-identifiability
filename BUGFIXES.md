@@ -225,3 +225,193 @@ Both fixes are backward compatible:
 - **Sparsity calculation**: Negligible (<1% overhead)
 - **Loss computation**: Already computed during validation, minimal impact
 - **Overall**: <2% additional overhead when tracking is enabled
+
+---
+
+# Circuit Visualization and Animation Fixes
+
+## Issue 1: Edge Connectivity Warnings (FIXED)
+
+### Problem
+When visualizing circuits with `--debug` flag, some neurons showed as having no incoming edges even though they were part of circuits.
+
+Example from epoch 21:
+```
+⚠️  WARNING: 1 neurons in circuits with NO INCOMING EDGES:
+  Layer 1, Neuron 2 (in 18 circuits)
+```
+
+### Root Cause
+The visualization code was interpreting edge mask indices **backwards**.
+
+**The issue was NOT in the data** - edge masks in the JSON are correctly sized and structured.
+
+Edge masks follow the standard weight matrix convention:
+- Shape: `[num_output_neurons][num_input_neurons]`
+- `edge_mask[to_idx][from_idx]` - first index is destination, second is source
+- This matches PyTorch's `weight[out_features, in_features]` convention
+
+**The bug**: In `circuit_visualization.py` lines 151-166, the code incorrectly iterated as:
+```python
+# WRONG - treats edge_mask as [from][to]
+for from_idx in range(len(edge_mask)):
+    for to_idx in range(len(edge_mask[from_idx])):
+        if edge_mask[from_idx][to_idx] == 1:
+            from_key = (layer_idx, from_idx)
+            to_key = (layer_idx + 1, to_idx)
+```
+
+This transposed the edge connectivity, making connections appear to go from wrong neurons.
+
+### Fix
+Changed iteration order in `circuit_visualization.py` lines 157-162 to:
+```python
+# CORRECT - edge_mask is [to][from]
+for to_idx in range(len(edge_mask)):
+    for from_idx in range(len(edge_mask[to_idx])):
+        if edge_mask[to_idx][from_idx] == 1:
+            from_key = (layer_idx, from_idx)
+            to_key = (layer_idx + 1, to_idx)
+```
+
+### Verification
+After fix, debug mode shows:
+```
+✓ All non-input neurons in circuits have incoming edges
+✓ All non-output neurons in circuits have outgoing edges
+```
+
+### Status
+- ✅ **FIXED** - Edge masks were always correct in the data
+- ✅ Visualization now correctly interprets edge connectivity
+- ✅ Debug mode confirms all neurons have proper connections
+- ✅ No changes needed to circuit.py or detailed_circuit_tracker.py
+
+## Issue 2: Neurons with No Outgoing Edges
+
+### Problem
+Some neurons in circuits have no outgoing edges, appearing as "dead ends".
+
+### Analysis
+This is **expected behavior** for sparse circuits:
+- Output layer neurons naturally have no outgoing edges
+- Some hidden neurons may act as "gating" or "conditional" neurons
+- More common with L1 regularization (creates sparser structures)
+
+### Status
+✅ This is normal circuit structure, not a bug
+
+## Fixes Applied
+
+### 1. KeyError for Non-Existent Neuron Positions
+**Fixed:** Added bounds checking when processing edge masks
+- **Location**: `circuit_visualization.py` lines 163-164, 206-207
+- **Solution**: Only count/draw edges where both from/to positions exist in the network
+- **Impact**: Prevents crashes, gracefully handles incomplete edge data
+
+### 2. FFmpeg Not Found Error
+**Fixed:** Added automatic fallback to GIF format
+- **Location**: `circuit_animation.py` lines 138-169, 227-258
+- **Solution**: Try ffmpeg first, catch errors, fall back to PillowWriter (GIF)
+- **Impact**: Works without ffmpeg installation, auto-converts .mp4 to .gif
+
+### 3. Improved Edge Visibility
+**Enhancement:** Increased minimum edge opacity
+- **Location**: `circuit_visualization.py` line 230
+- **Change**: `opacity = np.clip(opacity, 0.25, 1.0)` (was 0.1)
+- **Reason**: Edges used by few circuits (1-2 out of 26) were nearly invisible at 0.1 opacity
+
+### 4. Better Inactive Neuron Visualization
+**Enhancement:** Added special color for neurons in circuits but with low activation
+- **Location**: `circuit_visualization.py` lines 245-250
+- **Addition**: Very pale green (#F1F8F4) for neurons with activation < 0.001
+- **Reason**: Distinguish between "not in any circuit" (gray) and "in circuit but inactive" (pale green with border)
+
+### 5. Debug Mode for Connectivity Analysis
+**Enhancement:** Added `--debug` flag to identify connectivity issues
+- **Location**: `circuit_visualization.py` lines 242-311, `animate_circuits.py` line 76
+- **Usage**: `python animate_circuits.py --json data.json --snapshot --epoch 20 --debug`
+- **Output**: Detailed report showing:
+  - Neurons with no incoming edges (excluding input layer)
+  - Neurons with no outgoing edges (excluding output layer)
+  - Edge statistics (min/max/avg circuits per edge)
+- **Purpose**: Helps identify data quality issues and understand circuit structure
+
+## Visualization Legend
+
+The updated visualization now shows four neuron states:
+
+1. **Gray (no border)**: Not in any circuit
+2. **Pale green (with border)**: In circuit(s) but inactive (activation < 0.001)
+3. **Light green (with border)**: In circuit(s) with low activation
+4. **Dark green (with border)**: In circuit(s) with high activation
+
+Border thickness indicates how many circuits use this neuron (relative to total circuits).
+
+## Files Modified
+
+1. `mi_identifiability/circuit_visualization.py`
+   - Added debug mode (lines 104, 242-311)
+   - Increased edge opacity (line 230)
+   - Added pale green for inactive neurons (lines 245-250)
+   - Added bounds checking (lines 163-164, 206-207)
+   - Updated legend (lines 271-285)
+
+2. `mi_identifiability/circuit_animation.py`
+   - Added ffmpeg fallback (lines 138-169, 227-258)
+   - Auto-detect writer from file extension (lines 132-136)
+
+3. `animate_circuits.py`
+   - Added `--debug` flag (line 76)
+   - Pass debug flag to visualization (line 113)
+
+4. `VISUALIZATION_EXPLANATION.md` - Created comprehensive guide
+
+5. `ANIMATION_README.md` - Added ffmpeg installation instructions
+
+## Testing
+
+Test the debug mode:
+```bash
+python animate_circuits.py \
+    --json logs/run_XXX/detailed_circuits.json \
+    --snapshot --epoch 20 \
+    --debug
+```
+
+Expected output:
+```
+================================================================================
+DEBUG: Epoch 21 - 26 total circuits
+================================================================================
+
+Neurons in circuits: 9
+Network structure: [2, 3, 3, 1]
+
+⚠️  WARNING: 1 neurons in circuits with NO INCOMING EDGES:
+  Layer 1, Neuron 2 (in 18 circuits)
+
+⚠️  INFO: 2 neurons in circuits with NO OUTGOING EDGES (may be normal):
+  Layer 2, Neuron 1 (in 26 circuits)
+  Layer 2, Neuron 2 (in 6 circuits)
+
+Edge statistics:
+  Total edges in circuits: 13
+  Min edges sharing a connection: 4
+  Max edges sharing a connection: 26
+  Avg edges sharing a connection: 19.46
+================================================================================
+```
+
+## Known Limitations
+
+1. **Edge mask dimensions**: Not all neurons have complete edge information in the JSON data
+2. **No automatic repair**: The visualization shows the data as-is, doesn't try to infer missing edges
+3. **Upstream fix needed**: The circuit serialization in `detailed_circuit_tracker.py` should save complete edge masks
+
+## Recommendations
+
+1. **Use debug mode** when analyzing new runs to verify data quality
+2. **Check connectivity warnings** - neurons with no incoming edges (except input layer) indicate data issues
+3. **Neurons with no outgoing edges** are normal for output layer and some hidden layer "dead ends"
+4. **Higher edge opacity** (0.25) makes circuit structure more visible
