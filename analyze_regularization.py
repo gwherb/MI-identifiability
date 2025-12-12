@@ -103,16 +103,29 @@ def plot_circuits_vs_regularization(df, reg_type='l1', output_file=None):
 def statistical_comparison(df, baseline_lambda=0.0, reg_type='l1'):
     """
     Perform statistical tests comparing each regularization level to baseline.
-    
+
+    The baseline is defined as runs where ALL regularization parameters are 0,
+    ensuring a consistent comparison point across all regularization types.
+
     Returns:
         DataFrame with test results
     """
     col_name = f'{reg_type}_lambda' if reg_type in ['l1', 'l2'] else 'dropout_rate'
 
-    # Get baseline data - parse strings to lists if needed
-    baseline = df[df[col_name] == baseline_lambda]['perfect_circuits'].apply(
+    # Get TRUE baseline data - where ALL regularization parameters are 0
+    baseline_mask = (
+        (df.get('l1_lambda', 0) == 0) &
+        (df.get('l2_lambda', 0) == 0) &
+        (df.get('dropout_rate', 0) == 0)
+    )
+
+    baseline = df[baseline_mask]['perfect_circuits'].apply(
         lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
     )
+
+    if baseline.empty:
+        print(f"Warning: No true baseline data found for {reg_type} comparison")
+        return pd.DataFrame()
 
     results = []
 
@@ -123,14 +136,17 @@ def statistical_comparison(df, baseline_lambda=0.0, reg_type='l1'):
         treatment = df[df[col_name] == reg_val]['perfect_circuits'].apply(
             lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
         )
-        
+
+        if treatment.empty:
+            continue
+
         # Perform t-test
         t_stat, p_val = stats.ttest_ind(baseline, treatment)
-        
+
         # Compute effect size (Cohen's d)
         pooled_std = np.sqrt((baseline.std()**2 + treatment.std()**2) / 2)
         cohens_d = (treatment.mean() - baseline.mean()) / pooled_std
-        
+
         results.append({
             'regularization': reg_val,
             'baseline_mean': baseline.mean(),
@@ -142,8 +158,66 @@ def statistical_comparison(df, baseline_lambda=0.0, reg_type='l1'):
             'cohens_d': cohens_d,
             'significant': 'Yes' if p_val < 0.05 else 'No'
         })
-    
+
     return pd.DataFrame(results)
+
+
+def compute_baseline_statistics(df, output_dir='analysis_output'):
+    """
+    Compute and save statistics for the baseline run (no regularization).
+
+    Args:
+        df: DataFrame with results
+        output_dir: Directory to save the baseline statistics CSV
+    """
+    output_dir = Path(output_dir)
+
+    # Find baseline runs (where all regularization parameters are 0)
+    baseline_mask = (
+        (df.get('l1_lambda', 0) == 0) &
+        (df.get('l2_lambda', 0) == 0) &
+        (df.get('dropout_rate', 0) == 0)
+    )
+
+    baseline_df = df[baseline_mask].copy()
+
+    if baseline_df.empty:
+        print("Warning: No baseline runs found (all regularization = 0)")
+        return None
+
+    # Parse circuit counts
+    baseline_df['n_circuits'] = baseline_df['perfect_circuits'].apply(
+        lambda x: eval(x)[0] if isinstance(x, str) else (x[0] if isinstance(x, list) else x)
+    )
+
+    # Compute statistics
+    baseline_stats = {
+        'mean': baseline_df['n_circuits'].mean(),
+        'std': baseline_df['n_circuits'].std(),
+        'median': baseline_df['n_circuits'].median(),
+        'min': baseline_df['n_circuits'].min(),
+        'max': baseline_df['n_circuits'].max(),
+        'count': len(baseline_df),
+        'q25': baseline_df['n_circuits'].quantile(0.25),
+        'q75': baseline_df['n_circuits'].quantile(0.75),
+    }
+
+    # Convert to DataFrame and save
+    stats_df = pd.DataFrame([baseline_stats])
+    stats_df = stats_df.round(3)
+
+    output_file = output_dir / 'baseline_statistics.csv'
+    stats_df.to_csv(output_file, index=False)
+
+    print(f"\nBaseline Statistics (no regularization):")
+    print(f"  Mean: {baseline_stats['mean']:.3f}")
+    print(f"  Std: {baseline_stats['std']:.3f}")
+    print(f"  Median: {baseline_stats['median']:.3f}")
+    print(f"  Range: [{baseline_stats['min']:.0f}, {baseline_stats['max']:.0f}]")
+    print(f"  Sample size: {baseline_stats['count']}")
+    print(f"  Saved to: {output_file}\n")
+
+    return stats_df
 
 
 def create_comprehensive_report(df, output_dir='analysis_output'):
@@ -152,11 +226,14 @@ def create_comprehensive_report(df, output_dir='analysis_output'):
     """
     output_dir = Path(output_dir)
     output_dir.mkdir(exist_ok=True)
-    
+
     print("="*60)
     print("COMPREHENSIVE REGULARIZATION ANALYSIS REPORT")
     print("="*60)
-    
+
+    # Compute and save baseline statistics
+    compute_baseline_statistics(df, output_dir)
+
     # Determine which regularization types were tested
     reg_types = []
     if 'l1_lambda' in df.columns and df['l1_lambda'].nunique() > 1:

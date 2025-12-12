@@ -1,2 +1,0 @@
-regularization,baseline_mean,treatment_mean,difference,percent_change,t_statistic,p_value,cohens_d,significant
-0.01,56.563748079877115,63.78125,7.217501920122885,12.759942834641386,-1.8264764290819722,0.06817856415054581,0.20408195497879453,No
