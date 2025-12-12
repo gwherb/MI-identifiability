@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Batch create animations from all detailed tracking JSON files.
+Creates animations in an 'animations' subfolder within each run directory.
 """
 
 import glob
@@ -10,14 +11,10 @@ from tqdm import tqdm
 import json
 
 # Find all detailed tracking JSON files
-json_files = glob.glob("logs/*/detailed_circuits*.json")
+json_files = glob.glob("detailed_tracking_100/logs/*/detailed_circuits*.json")
 
 print(f"Found {len(json_files)} detailed tracking files")
 print()
-
-# Create output directory
-output_dir = Path("animations")
-output_dir.mkdir(exist_ok=True)
 
 successful = 0
 failed = 0
@@ -25,6 +22,13 @@ skipped = 0
 
 for json_path in tqdm(json_files, desc="Creating animations"):
     json_path = Path(json_path)
+
+    # Get the run directory (parent of the JSON file)
+    run_dir = json_path.parent
+
+    # Create 'animations' subfolder within this run directory
+    animations_dir = run_dir / "animations"
+    animations_dir.mkdir(exist_ok=True)
 
     # Parse filename to extract metadata
     filename = json_path.stem  # e.g., "detailed_circuits_seed42_baseline" or "detailed_circuits_seed42_l1_0.001"
@@ -39,14 +43,14 @@ for json_path in tqdm(json_files, desc="Creating animations"):
         seed = "unknown"
         reg_id = "unknown"
 
-    # Quick check: does the JSON have L1 lambda?
+    # Quick check: does the JSON have circuits?
     try:
         with open(json_path, 'r') as f:
             data = json.load(f)
             # Check if any checkpoint exists with circuits
             has_circuits = any(checkpoint.get('total_circuits', 0) > 0 for checkpoint in data)
             if not has_circuits:
-                print(f"  Skipping {seed}: No circuits found")
+                # print(f"  Skipping {seed}_{reg_id}: No circuits found")
                 skipped += 1
                 continue
     except Exception as e:
@@ -54,8 +58,8 @@ for json_path in tqdm(json_files, desc="Creating animations"):
         failed += 1
         continue
 
-    # Determine output filename with regularization type
-    output_path = output_dir / f"animation_seed{seed}_{reg_id}.gif"
+    # Determine output filename with regularization type, save in run's animations folder
+    output_path = animations_dir / f"animation_seed{seed}_{reg_id}.gif"
 
     # Skip if already exists
     if output_path.exists():
@@ -94,5 +98,13 @@ print(f"Failed:     {failed}")
 print(f"Skipped:    {skipped}")
 print(f"Total:      {len(json_files)}")
 print()
-print(f"Animations saved to: {output_dir.absolute()}")
+print("Animations saved to: detailed_tracking_100/logs/<run_directory>/animations/")
 print("="*80)
+
+# Print some example paths
+if successful > 0:
+    print("\nExample animation locations:")
+    example_anims = list(Path("detailed_tracking_100/logs").glob("*/animations/*.gif"))[:3]
+    for anim in example_anims:
+        print(f"  {anim}")
+    print("="*80)
