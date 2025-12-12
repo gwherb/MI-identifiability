@@ -6,8 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-logs/
-data/
 
 .idea/
 .DS_Store

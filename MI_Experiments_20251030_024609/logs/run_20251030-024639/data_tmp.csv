@@ -1,0 +1,2 @@
+gates,n_gates,sizes,seed_offset,perfect_circuits,loss_target,learning_rate,depth,weights,l1_lambda,l2_lambda,dropout_rate
+XOR,1,3,0,[36],0.01,0.001,2,,0.0,0.0,0.0

@@ -1,0 +1,2 @@
+gates,n_gates,sizes,seed_offset,perfect_circuits,loss_target,learning_rate,depth,weights,l1_lambda,l2_lambda,dropout_rate,detailed_circuits_file
+XOR,1,3,0,[45],0.01,0.001,2,,0.001,0.0,0.0,detailed_circuits_k3_seed0_depth2_lr0.001_loss0.01.json

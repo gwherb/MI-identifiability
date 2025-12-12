@@ -1,0 +1,6907 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.1943846836686134,
+    "val_loss": 1.0845541954040527,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.085589236021042,
+    "val_loss": 0.987031877040863,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.9854119658470154,
+    "val_loss": 0.871297299861908,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.8369130000472069,
+    "val_loss": 0.6886910200119019,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.5921469412744045,
+    "val_loss": 0.41425737738609314,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.3549796037375927,
+    "val_loss": 0.27583640813827515,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 7,
+    "train_loss": 0.2691960599273443,
+    "val_loss": 0.2530721127986908,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 8,
+    "train_loss": 0.2569284994155169,
+    "val_loss": 0.2526961863040924,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 9,
+    "train_loss": 0.2554456766694784,
+    "val_loss": 0.25210076570510864,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 10,
+    "train_loss": 0.25449128188192843,
+    "val_loss": 0.2518347203731537,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 11,
+    "train_loss": 0.25370535999536514,
+    "val_loss": 0.25138047337532043,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 12,
+    "train_loss": 0.25302378796041014,
+    "val_loss": 0.2509295344352722,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 13,
+    "train_loss": 0.2524111408740282,
+    "val_loss": 0.25070589780807495,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 14,
+    "train_loss": 0.251923219487071,
+    "val_loss": 0.2505601942539215,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 15,
+    "train_loss": 0.25144140534102916,
+    "val_loss": 0.25020554661750793,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 16,
+    "train_loss": 0.25111105255782606,
+    "val_loss": 0.2501210868358612,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 17,
+    "train_loss": 0.25088242515921594,
+    "val_loss": 0.24987518787384033,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 18,
+    "train_loss": 0.25061181336641314,
+    "val_loss": 0.25004884600639343,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 19,
+    "train_loss": 0.25040898807346823,
+    "val_loss": 0.2500093877315521,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 20,
+    "train_loss": 0.25034283809363844,
+    "val_loss": 0.250003457069397,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 21,
+    "train_loss": 0.2501458000391722,
+    "val_loss": 0.2500421404838562,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 22,
+    "train_loss": 0.2500632252544165,
+    "val_loss": 0.2500206530094147,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 23,
+    "train_loss": 0.2499418780207634,
+    "val_loss": 0.24975840747356415,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 24,
+    "train_loss": 0.2499372646212578,
+    "val_loss": 0.24960866570472717,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 25,
+    "train_loss": 0.24980794452130795,
+    "val_loss": 0.24936580657958984,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 26,
+    "train_loss": 0.24959827065467835,
+    "val_loss": 0.24980716407299042,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 27,
+    "train_loss": 0.24958467148244382,
+    "val_loss": 0.2493857443332672,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 28,
+    "train_loss": 0.24955397173762323,
+    "val_loss": 0.24949264526367188,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 29,
+    "train_loss": 0.2494349844753742,
+    "val_loss": 0.25018084049224854,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 30,
+    "train_loss": 0.24927942156791688,
+    "val_loss": 0.2493596076965332,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 31,
+    "train_loss": 0.24919094406068326,
+    "val_loss": 0.24929074943065643,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 32,
+    "train_loss": 0.24909613691270352,
+    "val_loss": 0.24943163990974426,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 33,
+    "train_loss": 0.24897391721606255,
+    "val_loss": 0.24947737157344818,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 34,
+    "train_loss": 0.24879856407642365,
+    "val_loss": 0.24902872741222382,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 35,
+    "train_loss": 0.24877713583409786,
+    "val_loss": 0.24901318550109863,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 36,
+    "train_loss": 0.24845309630036355,
+    "val_loss": 0.24907588958740234,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 37,
+    "train_loss": 0.24832701608538627,
+    "val_loss": 0.24876676499843597,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 38,
+    "train_loss": 0.2480823315680027,
+    "val_loss": 0.24866905808448792,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 39,
+    "train_loss": 0.24797975420951843,
+    "val_loss": 0.24797196686267853,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 40,
+    "train_loss": 0.24763956107199192,
+    "val_loss": 0.24818821251392365,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 41,
+    "train_loss": 0.24735835678875445,
+    "val_loss": 0.24771951138973236,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 42,
+    "train_loss": 0.24684303477406502,
+    "val_loss": 0.247442826628685,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 43,
+    "train_loss": 0.24645360484719275,
+    "val_loss": 0.2465095967054367,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 44,
+    "train_loss": 0.245889787748456,
+    "val_loss": 0.24663464725017548,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 45,
+    "train_loss": 0.24538972973823547,
+    "val_loss": 0.2455190271139145,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 46,
+    "train_loss": 0.24478806629776956,
+    "val_loss": 0.24514451622962952,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 47,
+    "train_loss": 0.2440139964222908,
+    "val_loss": 0.24454176425933838,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 48,
+    "train_loss": 0.24312916584312916,
+    "val_loss": 0.24325314164161682,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 49,
+    "train_loss": 0.24214422404766084,
+    "val_loss": 0.2419196218252182,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 50,
+    "train_loss": 0.2410069152712822,
+    "val_loss": 0.24154138565063477,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 51,
+    "train_loss": 0.23963920399546623,
+    "val_loss": 0.23960533738136292,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 52,
+    "train_loss": 0.238270740583539,
+    "val_loss": 0.23780694603919983,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 53,
+    "train_loss": 0.2365996602922678,
+    "val_loss": 0.23641513288021088,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 54,
+    "train_loss": 0.2347004760056734,
+    "val_loss": 0.23408353328704834,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 55,
+    "train_loss": 0.2325243428349495,
+    "val_loss": 0.23200173676013947,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 56,
+    "train_loss": 0.23011487536132336,
+    "val_loss": 0.22937913239002228,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 57,
+    "train_loss": 0.22747574746608734,
+    "val_loss": 0.2261980026960373,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 58,
+    "train_loss": 0.22435933724045753,
+    "val_loss": 0.2230655699968338,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 59,
+    "train_loss": 0.22100251764059067,
+    "val_loss": 0.21937966346740723,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 60,
+    "train_loss": 0.21711756139993668,
+    "val_loss": 0.21587248146533966,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 61,
+    "train_loss": 0.2130315501242876,
+    "val_loss": 0.21171532571315765,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 62,
+    "train_loss": 0.20803991332650185,
+    "val_loss": 0.2061646431684494,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 63,
+    "train_loss": 0.20259757041931153,
+    "val_loss": 0.20023603737354279,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 64,
+    "train_loss": 0.19661174416542054,
+    "val_loss": 0.19424769282341003,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 65,
+    "train_loss": 0.1901412907987833,
+    "val_loss": 0.18665044009685516,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 66,
+    "train_loss": 0.18251175098121167,
+    "val_loss": 0.17922250926494598,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 67,
+    "train_loss": 0.17425687685608865,
+    "val_loss": 0.17031307518482208,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 68,
+    "train_loss": 0.16540541127324104,
+    "val_loss": 0.16071049869060516,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 69,
+    "train_loss": 0.15502232275903224,
+    "val_loss": 0.14979946613311768,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 70,
+    "train_loss": 0.143954811245203,
+    "val_loss": 0.13849391043186188,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 71,
+    "train_loss": 0.13211788777261974,
+    "val_loss": 0.1257854551076889,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 72,
+    "train_loss": 0.11936402544379235,
+    "val_loss": 0.11288199573755264,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 73,
+    "train_loss": 0.10618494618684053,
+    "val_loss": 0.09902214258909225,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 74,
+    "train_loss": 0.092579036206007,
+    "val_loss": 0.0852167159318924,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 75,
+    "train_loss": 0.07892355658113956,
+    "val_loss": 0.07245147228240967,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 76,
+    "train_loss": 0.06601311499252915,
+    "val_loss": 0.059151943773031235,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 77,
+    "train_loss": 0.05417640674859285,
+    "val_loss": 0.049820270389318466,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 78,
+    "train_loss": 0.04641627287492156,
+    "val_loss": 0.04284363612532616,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 79,
+    "train_loss": 0.04022500785067677,
+    "val_loss": 0.03698542341589928,
+    "total_circuits": 0,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 0,
+        "avg_sparsity": 0.0,
+        "circuits": []
+      }
+    ]
+  },
+  {
+    "epoch": 80,
+    "train_loss": 0.03474228587001562,
+    "val_loss": 0.031877439469099045,
+    "total_circuits": 1,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 1,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03636092692613602,
+                "std_activation": 0.02177220769226551,
+                "min_activation": -0.06755618005990982,
+                "max_activation": -0.007901444099843502
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.5908088684082031,
+                "std_activation": 0.40958133339881897,
+                "min_activation": 0.00014340877532958984,
+                "max_activation": 1.126076102256775
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8893545269966125,
+                "std_activation": 0.4175882339477539,
+                "min_activation": 0.28701600432395935,
+                "max_activation": 1.4350247383117676
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.19090579450130463,
+                "std_activation": 0.2025316059589386,
+                "min_activation": -0.0029775728471577168,
+                "max_activation": 0.5008059740066528
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.5936565399169922,
+                "std_activation": 0.2649770975112915,
+                "min_activation": 0.21147863566875458,
+                "max_activation": 0.9399225115776062
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.32116788625717163,
+                "std_activation": 0.2026369869709015,
+                "min_activation": 0.10109442472457886,
+                "max_activation": 0.5513387322425842
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 81,
+    "train_loss": 0.0299707620870322,
+    "val_loss": 0.027434026822447777,
+    "total_circuits": 2,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 2,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03665821626782417,
+                "std_activation": 0.021937653422355652,
+                "min_activation": -0.06809043139219284,
+                "max_activation": -0.00798248965293169
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.5983745455741882,
+                "std_activation": 0.41416800022125244,
+                "min_activation": 0.0010892152786254883,
+                "max_activation": 1.1396334171295166
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8980470895767212,
+                "std_activation": 0.4281969964504242,
+                "min_activation": 0.2804073095321655,
+                "max_activation": 1.45758056640625
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.19567659497261047,
+                "std_activation": 0.20831362903118134,
+                "min_activation": -0.0030794127378612757,
+                "max_activation": 0.514569103717804
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.5870000720024109,
+                "std_activation": 0.28094789385795593,
+                "min_activation": 0.1818358451128006,
+                "max_activation": 0.9541592001914978
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.30893823504447937,
+                "std_activation": 0.21142549812793732,
+                "min_activation": 0.08524593710899353,
+                "max_activation": 0.5488760471343994
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03665821626782417,
+                "std_activation": 0.021937653422355652,
+                "min_activation": -0.06809043139219284,
+                "max_activation": -0.00798248965293169
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.5983745455741882,
+                "std_activation": 0.41416800022125244,
+                "min_activation": 0.0010892152786254883,
+                "max_activation": 1.1396334171295166
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8980470895767212,
+                "std_activation": 0.4281969964504242,
+                "min_activation": 0.2804073095321655,
+                "max_activation": 1.45758056640625
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.19567659497261047,
+                "std_activation": 0.20831362903118134,
+                "min_activation": -0.0030794127378612757,
+                "max_activation": 0.514569103717804
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.598840057849884,
+                "std_activation": 0.2738771438598633,
+                "min_activation": 0.20382772386074066,
+                "max_activation": 0.9567373991012573
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.31886324286460876,
+                "std_activation": 0.21253100037574768,
+                "min_activation": 0.0874072015285492,
+                "max_activation": 0.5598480701446533
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 82,
+    "train_loss": 0.025594184827059507,
+    "val_loss": 0.02330678142607212,
+    "total_circuits": 3,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 3,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0369180329144001,
+                "std_activation": 0.022084113210439682,
+                "min_activation": -0.0685613751411438,
+                "max_activation": -0.008050619624555111
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6043074727058411,
+                "std_activation": 0.41914424300193787,
+                "min_activation": -7.27295855540433e-06,
+                "max_activation": 1.152205467224121
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9049410820007324,
+                "std_activation": 0.4397619068622589,
+                "min_activation": 0.2707902789115906,
+                "max_activation": 1.4797377586364746
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20051567256450653,
+                "std_activation": 0.214153453707695,
+                "min_activation": -0.0031786439940333366,
+                "max_activation": 0.528501570224762
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.592217206954956,
+                "std_activation": 0.2899036109447479,
+                "min_activation": 0.17423930764198303,
+                "max_activation": 0.9711741209030151
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.30647721886634827,
+                "std_activation": 0.22086545825004578,
+                "min_activation": 0.07349663972854614,
+                "max_activation": 0.5566521883010864
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0369180329144001,
+                "std_activation": 0.022084113210439682,
+                "min_activation": -0.0685613751411438,
+                "max_activation": -0.008050619624555111
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6043074727058411,
+                "std_activation": 0.41914424300193787,
+                "min_activation": -7.27295855540433e-06,
+                "max_activation": 1.152205467224121
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9049410820007324,
+                "std_activation": 0.4397619068622589,
+                "min_activation": 0.2707902789115906,
+                "max_activation": 1.4797377586364746
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20051567256450653,
+                "std_activation": 0.214153453707695,
+                "min_activation": -0.0031786439940333366,
+                "max_activation": 0.528501570224762
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6028649806976318,
+                "std_activation": 0.28354761004447937,
+                "min_activation": 0.1940135359764099,
+                "max_activation": 0.9734960794448853
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.31549036502838135,
+                "std_activation": 0.22184330224990845,
+                "min_activation": 0.07546216249465942,
+                "max_activation": 0.5666135549545288
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.034882109612226486,
+                "std_activation": 0.02414422482252121,
+                "min_activation": -0.06971139460802078,
+                "max_activation": -0.0037707819137722254
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6043074727058411,
+                "std_activation": 0.41914424300193787,
+                "min_activation": -7.27295855540433e-06,
+                "max_activation": 1.152205467224121
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8875299692153931,
+                "std_activation": 0.4489038586616516,
+                "min_activation": 0.24044641852378845,
+                "max_activation": 1.474392294883728
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20590798556804657,
+                "std_activation": 0.21838298439979553,
+                "min_activation": -0.003250744193792343,
+                "max_activation": 0.5402575731277466
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6151720881462097,
+                "std_activation": 0.2741678059101105,
+                "min_activation": 0.22011443972587585,
+                "max_activation": 0.9736555814743042
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.30068883299827576,
+                "std_activation": 0.2272772192955017,
+                "min_activation": 0.04018145799636841,
+                "max_activation": 0.5697893500328064
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 83,
+    "train_loss": 0.02166091902181506,
+    "val_loss": 0.019630303606390953,
+    "total_circuits": 5,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 5,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037175800651311874,
+                "std_activation": 0.022225506603717804,
+                "min_activation": -0.0690215602517128,
+                "max_activation": -0.008123597130179405
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6107953190803528,
+                "std_activation": 0.4234907627105713,
+                "min_activation": 7.867813110351562e-06,
+                "max_activation": 1.1642107963562012
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8813838958740234,
+                "std_activation": 0.46872052550315857,
+                "min_activation": 0.2053629606962204,
+                "max_activation": 1.4939054250717163
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20460544526576996,
+                "std_activation": 0.2192261964082718,
+                "min_activation": -0.0032747292425483465,
+                "max_activation": 0.540500819683075
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6065832376480103,
+                "std_activation": 0.2927095890045166,
+                "min_activation": 0.18438149988651276,
+                "max_activation": 0.9890768527984619
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.29506823420524597,
+                "std_activation": 0.22884289920330048,
+                "min_activation": 0.06293463706970215,
+                "max_activation": 0.5540693998336792
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037175800651311874,
+                "std_activation": 0.022225506603717804,
+                "min_activation": -0.0690215602517128,
+                "max_activation": -0.008123597130179405
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6107953190803528,
+                "std_activation": 0.4234907627105713,
+                "min_activation": 7.867813110351562e-06,
+                "max_activation": 1.1642107963562012
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9117860794067383,
+                "std_activation": 0.4505840241909027,
+                "min_activation": 0.2618085741996765,
+                "max_activation": 1.5005488395690918
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20460544526576996,
+                "std_activation": 0.2192261964082718,
+                "min_activation": -0.0032747292425483465,
+                "max_activation": 0.540500819683075
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.5971338152885437,
+                "std_activation": 0.2983468174934387,
+                "min_activation": 0.16683754324913025,
+                "max_activation": 0.9870119094848633
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.3054560422897339,
+                "std_activation": 0.22976429760456085,
+                "min_activation": 0.06520450115203857,
+                "max_activation": 0.5655498504638672
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037175800651311874,
+                "std_activation": 0.022225506603717804,
+                "min_activation": -0.0690215602517128,
+                "max_activation": -0.008123597130179405
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6107953190803528,
+                "std_activation": 0.4234907627105713,
+                "min_activation": 7.867813110351562e-06,
+                "max_activation": 1.1642107963562012
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9117860794067383,
+                "std_activation": 0.4505840241909027,
+                "min_activation": 0.2618085741996765,
+                "max_activation": 1.5005488395690918
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20460544526576996,
+                "std_activation": 0.2192261964082718,
+                "min_activation": -0.0032747292425483465,
+                "max_activation": 0.540500819683075
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6065832376480103,
+                "std_activation": 0.2927095890045166,
+                "min_activation": 0.18438149988651276,
+                "max_activation": 0.9890768527984619
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.31352993845939636,
+                "std_activation": 0.23059336841106415,
+                "min_activation": 0.06696891784667969,
+                "max_activation": 0.5744729042053223
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03514238819479942,
+                "std_activation": 0.024282559752464294,
+                "min_activation": -0.07017412781715393,
+                "max_activation": -0.0038459578063338995
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6107953190803528,
+                "std_activation": 0.4234907627105713,
+                "min_activation": 7.867813110351562e-06,
+                "max_activation": 1.1642107963562012
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8813838958740234,
+                "std_activation": 0.46872052550315857,
+                "min_activation": 0.2053629606962204,
+                "max_activation": 1.4939054250717163
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21002207696437836,
+                "std_activation": 0.22348788380622864,
+                "min_activation": -0.003347799414768815,
+                "max_activation": 0.5523346066474915
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6189300417900085,
+                "std_activation": 0.28342685103416443,
+                "min_activation": 0.21036140620708466,
+                "max_activation": 0.9893972873687744
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2906061112880707,
+                "std_activation": 0.23473796248435974,
+                "min_activation": 0.03041219711303711,
+                "max_activation": 0.5680354833602905
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03514238819479942,
+                "std_activation": 0.024282559752464294,
+                "min_activation": -0.07017412781715393,
+                "max_activation": -0.0038459578063338995
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6107953190803528,
+                "std_activation": 0.4234907627105713,
+                "min_activation": 7.867813110351562e-06,
+                "max_activation": 1.1642107963562012
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8942127227783203,
+                "std_activation": 0.4599362015724182,
+                "min_activation": 0.23098044097423553,
+                "max_activation": 1.4953094720840454
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21002207696437836,
+                "std_activation": 0.22348788380622864,
+                "min_activation": -0.003347799414768815,
+                "max_activation": 0.5523346066474915
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6189300417900085,
+                "std_activation": 0.28342685103416443,
+                "min_activation": 0.21036140620708466,
+                "max_activation": 0.9893972873687744
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.29839643836021423,
+                "std_activation": 0.23591427505016327,
+                "min_activation": 0.0312647819519043,
+                "max_activation": 0.5771684646606445
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 84,
+    "train_loss": 0.01818113811314106,
+    "val_loss": 0.0164265725761652,
+    "total_circuits": 6,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 6,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037421680986881256,
+                "std_activation": 0.022362349554896355,
+                "min_activation": -0.06946354359388351,
+                "max_activation": -0.008190593682229519
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8861193060874939,
+                "std_activation": 0.47735488414764404,
+                "min_activation": 0.1978590190410614,
+                "max_activation": 1.510108470916748
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20860230922698975,
+                "std_activation": 0.2243112474679947,
+                "min_activation": -0.0033646647352725267,
+                "max_activation": 0.5524505972862244
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.5993030667304993,
+                "std_activation": 0.3054638206958771,
+                "min_activation": 0.15887898206710815,
+                "max_activation": 0.9985995292663574
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2794373035430908,
+                "std_activation": 0.2374131679534912,
+                "min_activation": 0.041795387864112854,
+                "max_activation": 0.5475678443908691
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037421680986881256,
+                "std_activation": 0.022362349554896355,
+                "min_activation": -0.06946354359388351,
+                "max_activation": -0.008190593682229519
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8861193060874939,
+                "std_activation": 0.47735488414764404,
+                "min_activation": 0.1978590190410614,
+                "max_activation": 1.510108470916748
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20860230922698975,
+                "std_activation": 0.2243112474679947,
+                "min_activation": -0.0033646647352725267,
+                "max_activation": 0.5524505972862244
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.607636570930481,
+                "std_activation": 0.30049458146095276,
+                "min_activation": 0.17434795200824738,
+                "max_activation": 1.0004234313964844
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28660711646080017,
+                "std_activation": 0.23798100650310516,
+                "min_activation": 0.04336465895175934,
+                "max_activation": 0.5554914474487305
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037421680986881256,
+                "std_activation": 0.022362349554896355,
+                "min_activation": -0.06946354359388351,
+                "max_activation": -0.008190593682229519
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9155060052871704,
+                "std_activation": 0.45983272790908813,
+                "min_activation": 0.25240764021873474,
+                "max_activation": 1.5165404081344604
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20860230922698975,
+                "std_activation": 0.2243112474679947,
+                "min_activation": -0.0033646647352725267,
+                "max_activation": 0.5524505972862244
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.5993030667304993,
+                "std_activation": 0.3054638206958771,
+                "min_activation": 0.15887898206710815,
+                "max_activation": 0.9985995292663574
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.29744425415992737,
+                "std_activation": 0.23898254334926605,
+                "min_activation": 0.045736685395240784,
+                "max_activation": 0.5674678087234497
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.037421680986881256,
+                "std_activation": 0.022362349554896355,
+                "min_activation": -0.06946354359388351,
+                "max_activation": -0.008190593682229519
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9155060052871704,
+                "std_activation": 0.45983272790908813,
+                "min_activation": 0.25240764021873474,
+                "max_activation": 1.5165404081344604
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.20860230922698975,
+                "std_activation": 0.2243112474679947,
+                "min_activation": -0.0033646647352725267,
+                "max_activation": 0.5524505972862244
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.607636570930481,
+                "std_activation": 0.30049458146095276,
+                "min_activation": 0.17434795200824738,
+                "max_activation": 1.0004234313964844
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.30461400747299194,
+                "std_activation": 0.2397390604019165,
+                "min_activation": 0.04730583727359772,
+                "max_activation": 0.575391411781311
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.035390838980674744,
+                "std_activation": 0.024416765198111534,
+                "min_activation": -0.07061885297298431,
+                "max_activation": -0.003915125038474798
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8861193060874939,
+                "std_activation": 0.47735488414764404,
+                "min_activation": 0.1978590190410614,
+                "max_activation": 1.510108470916748
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21404080092906952,
+                "std_activation": 0.22860689461231232,
+                "min_activation": -0.003438712330535054,
+                "max_activation": 0.5643584132194519
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6200296878814697,
+                "std_activation": 0.2912939488887787,
+                "min_activation": 0.20023682713508606,
+                "max_activation": 1.0008924007415771
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28202977776527405,
+                "std_activation": 0.2440653294324875,
+                "min_activation": 0.01039983332157135,
+                "max_activation": 0.5692787170410156
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.035390838980674744,
+                "std_activation": 0.024416765198111534,
+                "min_activation": -0.07061885297298431,
+                "max_activation": -0.003915125038474798
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6161319017410278,
+                "std_activation": 0.4273346960544586,
+                "min_activation": -8.23616937850602e-06,
+                "max_activation": 1.1747355461120605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8977872729301453,
+                "std_activation": 0.4693758189678192,
+                "min_activation": 0.2211412936449051,
+                "max_activation": 1.511399269104004
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21404080092906952,
+                "std_activation": 0.22860689461231232,
+                "min_activation": -0.003438712330535054,
+                "max_activation": 0.5643584132194519
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6200296878814697,
+                "std_activation": 0.2912939488887787,
+                "min_activation": 0.20023682713508606,
+                "max_activation": 1.0008924007415771
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2891794741153717,
+                "std_activation": 0.24515379965305328,
+                "min_activation": 0.011190786957740784,
+                "max_activation": 0.5776500701904297
+              }
+            ],
+            "circuit_idx": 5,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 85,
+    "train_loss": 0.015148087567649782,
+    "val_loss": 0.013619020581245422,
+    "total_circuits": 7,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 7,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03763876110315323,
+                "std_activation": 0.02248205989599228,
+                "min_activation": -0.06985150277614594,
+                "max_activation": -0.008251321502029896
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8936313986778259,
+                "std_activation": 0.4869656562805176,
+                "min_activation": 0.19155775010585785,
+                "max_activation": 1.5302269458770752
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21259836852550507,
+                "std_activation": 0.22904738783836365,
+                "min_activation": -0.0034448551014065742,
+                "max_activation": 0.5637975931167603
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6042481660842896,
+                "std_activation": 0.31353941559791565,
+                "min_activation": 0.15220855176448822,
+                "max_activation": 1.0141288042068481
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28046703338623047,
+                "std_activation": 0.2451612502336502,
+                "min_activation": 0.03778359293937683,
+                "max_activation": 0.5571866035461426
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03763876110315323,
+                "std_activation": 0.02248205989599228,
+                "min_activation": -0.06985150277614594,
+                "max_activation": -0.008251321502029896
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8936313986778259,
+                "std_activation": 0.4869656562805176,
+                "min_activation": 0.19155775010585785,
+                "max_activation": 1.5302269458770752
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21259836852550507,
+                "std_activation": 0.22904738783836365,
+                "min_activation": -0.0034448551014065742,
+                "max_activation": 0.5637975931167603
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6114678978919983,
+                "std_activation": 0.3092363774776459,
+                "min_activation": 0.16560731828212738,
+                "max_activation": 1.0157115459442139
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28673988580703735,
+                "std_activation": 0.24561837315559387,
+                "min_activation": 0.03915867209434509,
+                "max_activation": 0.5641193389892578
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03763876110315323,
+                "std_activation": 0.02248205989599228,
+                "min_activation": -0.06985150277614594,
+                "max_activation": -0.008251321502029896
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9219871759414673,
+                "std_activation": 0.47006624937057495,
+                "min_activation": 0.24418161809444427,
+                "max_activation": 1.5364432334899902
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21259836852550507,
+                "std_activation": 0.22904738783836365,
+                "min_activation": -0.0034448551014065742,
+                "max_activation": 0.5637975931167603
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6042481660842896,
+                "std_activation": 0.31353941559791565,
+                "min_activation": 0.15220855176448822,
+                "max_activation": 1.0141288042068481
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2980538308620453,
+                "std_activation": 0.2465846985578537,
+                "min_activation": 0.0416390597820282,
+                "max_activation": 0.5766235589981079
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03763876110315323,
+                "std_activation": 0.02248205989599228,
+                "min_activation": -0.06985150277614594,
+                "max_activation": -0.008251321502029896
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9219871759414673,
+                "std_activation": 0.47006624937057495,
+                "min_activation": 0.24418161809444427,
+                "max_activation": 1.5364432334899902
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21259836852550507,
+                "std_activation": 0.22904738783836365,
+                "min_activation": -0.0034448551014065742,
+                "max_activation": 0.5637975931167603
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6114678978919983,
+                "std_activation": 0.3092363774776459,
+                "min_activation": 0.16560731828212738,
+                "max_activation": 1.0157115459442139
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.3043266534805298,
+                "std_activation": 0.24719850718975067,
+                "min_activation": 0.04301413893699646,
+                "max_activation": 0.5835564136505127
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.035610318183898926,
+                "std_activation": 0.02453337423503399,
+                "min_activation": -0.07100916653871536,
+                "max_activation": -0.003978013060986996
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8936313986778259,
+                "std_activation": 0.4869656562805176,
+                "min_activation": 0.19155775010585785,
+                "max_activation": 1.5302269458770752
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21805739402770996,
+                "std_activation": 0.2333725094795227,
+                "min_activation": -0.0035196910612285137,
+                "max_activation": 0.5757699012756348
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6238881945610046,
+                "std_activation": 0.30012789368629456,
+                "min_activation": 0.1913720965385437,
+                "max_activation": 1.0163228511810303
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28208616375923157,
+                "std_activation": 0.2515352964401245,
+                "min_activation": 0.005817145109176636,
+                "max_activation": 0.5778622627258301
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.035610318183898926,
+                "std_activation": 0.02453337423503399,
+                "min_activation": -0.07100916653871536,
+                "max_activation": -0.003978013060986996
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9041277766227722,
+                "std_activation": 0.4797961711883545,
+                "min_activation": 0.2124883532524109,
+                "max_activation": 1.5313994884490967
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21805739402770996,
+                "std_activation": 0.2333725094795227,
+                "min_activation": -0.0035196910612285137,
+                "max_activation": 0.5757699012756348
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6042481660842896,
+                "std_activation": 0.31353941559791565,
+                "min_activation": 0.15220855176448822,
+                "max_activation": 1.0141288042068481
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2715321481227875,
+                "std_activation": 0.2501987814903259,
+                "min_activation": 0.004638165235519409,
+                "max_activation": 0.5655200481414795
+              }
+            ],
+            "circuit_idx": 5,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.035610318183898926,
+                "std_activation": 0.02453337423503399,
+                "min_activation": -0.07100916653871536,
+                "max_activation": -0.003978013060986996
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6216248869895935,
+                "std_activation": 0.4311729371547699,
+                "min_activation": -1.0595321327855345e-05,
+                "max_activation": 1.1852843761444092
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9041277766227722,
+                "std_activation": 0.4797961711883545,
+                "min_activation": 0.2124883532524109,
+                "max_activation": 1.5313994884490967
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21805739402770996,
+                "std_activation": 0.2333725094795227,
+                "min_activation": -0.0035196910612285137,
+                "max_activation": 0.5757699012756348
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6238881945610046,
+                "std_activation": 0.30012789368629456,
+                "min_activation": 0.1913720965385437,
+                "max_activation": 1.0163228511810303
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2885962426662445,
+                "std_activation": 0.2524605691432953,
+                "min_activation": 0.006544321775436401,
+                "max_activation": 0.5854752063751221
+              }
+            ],
+            "circuit_idx": 6,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 86,
+    "train_loss": 0.012509344285354019,
+    "val_loss": 0.011211599223315716,
+    "total_circuits": 8,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 8,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0378594696521759,
+                "std_activation": 0.022600829601287842,
+                "min_activation": -0.07024211436510086,
+                "max_activation": -0.008316834457218647
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8997241854667664,
+                "std_activation": 0.49523523449897766,
+                "min_activation": 0.18537741899490356,
+                "max_activation": 1.5468528270721436
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21587835252285004,
+                "std_activation": 0.233122318983078,
+                "min_activation": -0.0035256841219961643,
+                "max_activation": 0.5734361410140991
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6077229380607605,
+                "std_activation": 0.3204815685749054,
+                "min_activation": 0.1454477608203888,
+                "max_activation": 1.0264992713928223
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2791769504547119,
+                "std_activation": 0.2529310882091522,
+                "min_activation": 0.030297741293907166,
+                "max_activation": 0.5643875598907471
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0378594696521759,
+                "std_activation": 0.022600829601287842,
+                "min_activation": -0.07024211436510086,
+                "max_activation": -0.008316834457218647
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8997241854667664,
+                "std_activation": 0.49523523449897766,
+                "min_activation": 0.18537741899490356,
+                "max_activation": 1.5468528270721436
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21587835252285004,
+                "std_activation": 0.233122318983078,
+                "min_activation": -0.0035256841219961643,
+                "max_activation": 0.5734361410140991
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6138874888420105,
+                "std_activation": 0.3168098032474518,
+                "min_activation": 0.15688499808311462,
+                "max_activation": 1.0278534889221191
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2845754027366638,
+                "std_activation": 0.2533043324947357,
+                "min_activation": 0.03148363530635834,
+                "max_activation": 0.5703539848327637
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0378594696521759,
+                "std_activation": 0.022600829601287842,
+                "min_activation": -0.07024211436510086,
+                "max_activation": -0.008316834457218647
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9271097183227539,
+                "std_activation": 0.4789244532585144,
+                "min_activation": 0.2361869215965271,
+                "max_activation": 1.5528688430786133
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21587835252285004,
+                "std_activation": 0.233122318983078,
+                "min_activation": -0.0035256841219961643,
+                "max_activation": 0.5734361410140991
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6077229380607605,
+                "std_activation": 0.3204815685749054,
+                "min_activation": 0.1454477608203888,
+                "max_activation": 1.0264992713928223
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2963277995586395,
+                "std_activation": 0.25425615906715393,
+                "min_activation": 0.03406535089015961,
+                "max_activation": 0.5833425521850586
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.0378594696521759,
+                "std_activation": 0.022600829601287842,
+                "min_activation": -0.07024211436510086,
+                "max_activation": -0.008316834457218647
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9271097183227539,
+                "std_activation": 0.4789244532585144,
+                "min_activation": 0.2361869215965271,
+                "max_activation": 1.5528688430786133
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.21587835252285004,
+                "std_activation": 0.233122318983078,
+                "min_activation": -0.0035256841219961643,
+                "max_activation": 0.5734361410140991
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6138874888420105,
+                "std_activation": 0.3168098032474518,
+                "min_activation": 0.15688499808311462,
+                "max_activation": 1.0278534889221191
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.30172619223594666,
+                "std_activation": 0.25475695729255676,
+                "min_activation": 0.03525124490261078,
+                "max_activation": 0.5893088579177856
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03583356365561485,
+                "std_activation": 0.02464953623712063,
+                "min_activation": -0.07140237838029861,
+                "max_activation": -0.0040457467548549175
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8997241854667664,
+                "std_activation": 0.49523523449897766,
+                "min_activation": 0.18537741899490356,
+                "max_activation": 1.5468528270721436
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22135710716247559,
+                "std_activation": 0.2374807894229889,
+                "min_activation": -0.003601308912038803,
+                "max_activation": 0.5854716300964355
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6077229380607605,
+                "std_activation": 0.3204815685749054,
+                "min_activation": 0.1454477608203888,
+                "max_activation": 1.0264992713928223
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2635340988636017,
+                "std_activation": 0.25726318359375,
+                "min_activation": -0.004065766930580139,
+                "max_activation": 0.5651454925537109
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03583356365561485,
+                "std_activation": 0.02464953623712063,
+                "min_activation": -0.07140237838029861,
+                "max_activation": -0.0040457467548549175
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.8997241854667664,
+                "std_activation": 0.49523523449897766,
+                "min_activation": 0.18537741899490356,
+                "max_activation": 1.5468528270721436
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22135710716247559,
+                "std_activation": 0.2374807894229889,
+                "min_activation": -0.003601308912038803,
+                "max_activation": 0.5854716300964355
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6263453960418701,
+                "std_activation": 0.30778080224990845,
+                "min_activation": 0.18255510926246643,
+                "max_activation": 1.028601884841919
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.279842346906662,
+                "std_activation": 0.25914520025253296,
+                "min_activation": -0.002224460244178772,
+                "max_activation": 0.5841943025588989
+              }
+            ],
+            "circuit_idx": 5,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03583356365561485,
+                "std_activation": 0.02464953623712063,
+                "min_activation": -0.07140237838029861,
+                "max_activation": -0.0040457467548549175
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9091176986694336,
+                "std_activation": 0.48882725834846497,
+                "min_activation": 0.20409506559371948,
+                "max_activation": 1.5479134321212769
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22135710716247559,
+                "std_activation": 0.2374807894229889,
+                "min_activation": -0.003601308912038803,
+                "max_activation": 0.5854716300964355
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6077229380607605,
+                "std_activation": 0.3204815685749054,
+                "min_activation": 0.1454477608203888,
+                "max_activation": 1.0264992713928223
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.26941704750061035,
+                "std_activation": 0.2578873932361603,
+                "min_activation": -0.003401532769203186,
+                "max_activation": 0.5720169544219971
+              }
+            ],
+            "circuit_idx": 6,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03583356365561485,
+                "std_activation": 0.02464953623712063,
+                "min_activation": -0.07140237838029861,
+                "max_activation": -0.0040457467548549175
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6272174715995789,
+                "std_activation": 0.4344945549964905,
+                "min_activation": 0.00048553943634033203,
+                "max_activation": 1.194975733757019
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9091176986694336,
+                "std_activation": 0.48882725834846497,
+                "min_activation": 0.20409506559371948,
+                "max_activation": 1.5479134321212769
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22135710716247559,
+                "std_activation": 0.2374807894229889,
+                "min_activation": -0.003601308912038803,
+                "max_activation": 0.5854716300964355
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6263453960418701,
+                "std_activation": 0.30778080224990845,
+                "min_activation": 0.18255510926246643,
+                "max_activation": 1.028601884841919
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2857252061367035,
+                "std_activation": 0.2599395513534546,
+                "min_activation": -0.0015602260828018188,
+                "max_activation": 0.5910658836364746
+              }
+            ],
+            "circuit_idx": 7,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 87,
+    "train_loss": 0.010216395696625113,
+    "val_loss": 0.009120139293372631,
+    "total_circuits": 8,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 8,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03805714473128319,
+                "std_activation": 0.022709287703037262,
+                "min_activation": -0.07059381157159805,
+                "max_activation": -0.008373001590371132
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9052280783653259,
+                "std_activation": 0.5032365918159485,
+                "min_activation": 0.1793266087770462,
+                "max_activation": 1.5628052949905396
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.2193181812763214,
+                "std_activation": 0.23728516697883606,
+                "min_activation": -0.003598998999223113,
+                "max_activation": 0.583346962928772
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6110413670539856,
+                "std_activation": 0.3271847367286682,
+                "min_activation": 0.13908860087394714,
+                "max_activation": 1.0385723114013672
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.27749401330947876,
+                "std_activation": 0.2602667808532715,
+                "min_activation": 0.022418305277824402,
+                "max_activation": 0.5708492994308472
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03805714473128319,
+                "std_activation": 0.022709287703037262,
+                "min_activation": -0.07059381157159805,
+                "max_activation": -0.008373001590371132
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9052280783653259,
+                "std_activation": 0.5032365918159485,
+                "min_activation": 0.1793266087770462,
+                "max_activation": 1.5628052949905396
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.2193181812763214,
+                "std_activation": 0.23728516697883606,
+                "min_activation": -0.003598998999223113,
+                "max_activation": 0.583346962928772
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6162405014038086,
+                "std_activation": 0.3240894377231598,
+                "min_activation": 0.1487327218055725,
+                "max_activation": 1.0397162437438965
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28208276629447937,
+                "std_activation": 0.26057207584381104,
+                "min_activation": 0.023427888751029968,
+                "max_activation": 0.5759217739105225
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03805714473128319,
+                "std_activation": 0.022709287703037262,
+                "min_activation": -0.07059381157159805,
+                "max_activation": -0.008373001590371132
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9317218661308289,
+                "std_activation": 0.48746412992477417,
+                "min_activation": 0.2284710705280304,
+                "max_activation": 1.568634271621704
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.2193181812763214,
+                "std_activation": 0.23728516697883606,
+                "min_activation": -0.003598998999223113,
+                "max_activation": 0.583346962928772
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6110413670539856,
+                "std_activation": 0.3271847367286682,
+                "min_activation": 0.13908860087394714,
+                "max_activation": 1.0385723114013672
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.29424333572387695,
+                "std_activation": 0.26151806116104126,
+                "min_activation": 0.026103422045707703,
+                "max_activation": 0.5893641710281372
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.03805714473128319,
+                "std_activation": 0.022709287703037262,
+                "min_activation": -0.07059381157159805,
+                "max_activation": -0.008373001590371132
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9317218661308289,
+                "std_activation": 0.48746412992477417,
+                "min_activation": 0.2284710705280304,
+                "max_activation": 1.568634271621704
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.2193181812763214,
+                "std_activation": 0.23728516697883606,
+                "min_activation": -0.003598998999223113,
+                "max_activation": 0.583346962928772
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6162405014038086,
+                "std_activation": 0.3240894377231598,
+                "min_activation": 0.1487327218055725,
+                "max_activation": 1.0397162437438965
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.29883208870887756,
+                "std_activation": 0.26192641258239746,
+                "min_activation": 0.02711300551891327,
+                "max_activation": 0.594436526298523
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03603367134928703,
+                "std_activation": 0.024754462763667107,
+                "min_activation": -0.071756511926651,
+                "max_activation": -0.004104084800928831
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9052280783653259,
+                "std_activation": 0.5032365918159485,
+                "min_activation": 0.1793266087770462,
+                "max_activation": 1.5628052949905396
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22481682896614075,
+                "std_activation": 0.24166613817214966,
+                "min_activation": -0.0036752521991729736,
+                "max_activation": 0.5954396724700928
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6110413670539856,
+                "std_activation": 0.3271847367286682,
+                "min_activation": 0.13908860087394714,
+                "max_activation": 1.0385723114013672
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.26166200637817383,
+                "std_activation": 0.26460468769073486,
+                "min_activation": -0.012399747967720032,
+                "max_activation": 0.571272075176239
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03603367134928703,
+                "std_activation": 0.024754462763667107,
+                "min_activation": -0.071756511926651,
+                "max_activation": -0.004104084800928831
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9052280783653259,
+                "std_activation": 0.5032365918159485,
+                "min_activation": 0.1793266087770462,
+                "max_activation": 1.5628052949905396
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22481682896614075,
+                "std_activation": 0.24166613817214966,
+                "min_activation": -0.0036752521991729736,
+                "max_activation": 0.5954396724700928
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6287209391593933,
+                "std_activation": 0.3151402473449707,
+                "min_activation": 0.1742953360080719,
+                "max_activation": 1.040585994720459
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2772660255432129,
+                "std_activation": 0.2663440704345703,
+                "min_activation": -0.010622456669807434,
+                "max_activation": 0.5894755721092224
+              }
+            ],
+            "circuit_idx": 5,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03603367134928703,
+                "std_activation": 0.024754462763667107,
+                "min_activation": -0.071756511926651,
+                "max_activation": -0.004104084800928831
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9136009216308594,
+                "std_activation": 0.4975312650203705,
+                "min_activation": 0.19599995017051697,
+                "max_activation": 1.5637589693069458
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22481682896614075,
+                "std_activation": 0.24166613817214966,
+                "min_activation": -0.0036752521991729736,
+                "max_activation": 0.5954396724700928
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6110413670539856,
+                "std_activation": 0.3271847367286682,
+                "min_activation": 0.13908860087394714,
+                "max_activation": 1.0385723114013672
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2669552266597748,
+                "std_activation": 0.26514744758605957,
+                "min_activation": -0.011796906590461731,
+                "max_activation": 0.5774471163749695
+              }
+            ],
+            "circuit_idx": 6,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03603367134928703,
+                "std_activation": 0.024754462763667107,
+                "min_activation": -0.071756511926651,
+                "max_activation": -0.004104084800928831
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6318636536598206,
+                "std_activation": 0.4377326965332031,
+                "min_activation": 0.00044929981231689453,
+                "max_activation": 1.2038471698760986
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9136009216308594,
+                "std_activation": 0.4975312650203705,
+                "min_activation": 0.19599995017051697,
+                "max_activation": 1.5637589693069458
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22481682896614075,
+                "std_activation": 0.24166613817214966,
+                "min_activation": -0.0036752521991729736,
+                "max_activation": 0.5954396724700928
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6287209391593933,
+                "std_activation": 0.3151402473449707,
+                "min_activation": 0.1742953360080719,
+                "max_activation": 1.040585994720459
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2825593054294586,
+                "std_activation": 0.2670292258262634,
+                "min_activation": -0.010019496083259583,
+                "max_activation": 0.5956506133079529
+              }
+            ],
+            "circuit_idx": 7,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "epoch": 88,
+    "train_loss": 0.008262035145889968,
+    "val_loss": 0.007366647012531757,
+    "total_circuits": 8,
+    "outputs": [
+      {
+        "output_idx": 0,
+        "n_circuits": 8,
+        "avg_sparsity": 0.16666666666666666,
+        "circuits": [
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.038231514394283295,
+                "std_activation": 0.022805510088801384,
+                "min_activation": -0.07090473175048828,
+                "max_activation": -0.00842184666544199
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9112874269485474,
+                "std_activation": 0.5113861560821533,
+                "min_activation": 0.17377808690071106,
+                "max_activation": 1.5796462297439575
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22267059981822968,
+                "std_activation": 0.24130207300186157,
+                "min_activation": -0.003665722208097577,
+                "max_activation": 0.5929462313652039
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6152222156524658,
+                "std_activation": 0.3340495228767395,
+                "min_activation": 0.1334637850522995,
+                "max_activation": 1.0518100261688232
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.27910786867141724,
+                "std_activation": 0.2668946385383606,
+                "min_activation": 0.020520001649856567,
+                "max_activation": 0.5797144174575806
+              }
+            ],
+            "circuit_idx": 0,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.038231514394283295,
+                "std_activation": 0.022805510088801384,
+                "min_activation": -0.07090473175048828,
+                "max_activation": -0.00842184666544199
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9112874269485474,
+                "std_activation": 0.5113861560821533,
+                "min_activation": 0.17377808690071106,
+                "max_activation": 1.5796462297439575
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22267059981822968,
+                "std_activation": 0.24130207300186157,
+                "min_activation": -0.003665722208097577,
+                "max_activation": 0.5929462313652039
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6195245981216431,
+                "std_activation": 0.33148908615112305,
+                "min_activation": 0.14144298434257507,
+                "max_activation": 1.052757740020752
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28293803334236145,
+                "std_activation": 0.26712629199028015,
+                "min_activation": 0.021363645792007446,
+                "max_activation": 0.583949089050293
+              }
+            ],
+            "circuit_idx": 1,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.038231514394283295,
+                "std_activation": 0.022805510088801384,
+                "min_activation": -0.07090473175048828,
+                "max_activation": -0.00842184666544199
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9369463324546814,
+                "std_activation": 0.4961170256137848,
+                "min_activation": 0.22136543691158295,
+                "max_activation": 1.5852985382080078
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22267059981822968,
+                "std_activation": 0.24130207300186157,
+                "min_activation": -0.003665722208097577,
+                "max_activation": 0.5929462313652039
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6152222156524658,
+                "std_activation": 0.3340495228767395,
+                "min_activation": 0.1334637850522995,
+                "max_activation": 1.0518100261688232
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2954954206943512,
+                "std_activation": 0.26802095770835876,
+                "min_activation": 0.024129897356033325,
+                "max_activation": 0.5978326797485352
+              }
+            ],
+            "circuit_idx": 2,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 1,
+                "mean_activation": -0.038231514394283295,
+                "std_activation": 0.022805510088801384,
+                "min_activation": -0.07090473175048828,
+                "max_activation": -0.00842184666544199
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9369463324546814,
+                "std_activation": 0.4961170256137848,
+                "min_activation": 0.22136543691158295,
+                "max_activation": 1.5852985382080078
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22267059981822968,
+                "std_activation": 0.24130207300186157,
+                "min_activation": -0.003665722208097577,
+                "max_activation": 0.5929462313652039
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6195245981216431,
+                "std_activation": 0.33148908615112305,
+                "min_activation": 0.14144298434257507,
+                "max_activation": 1.052757740020752
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2993256151676178,
+                "std_activation": 0.26833492517471313,
+                "min_activation": 0.024973541498184204,
+                "max_activation": 0.6020673513412476
+              }
+            ],
+            "circuit_idx": 3,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3888888888888889,
+              0.3333333333333333
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03621035814285278,
+                "std_activation": 0.024847425520420074,
+                "min_activation": -0.0720696747303009,
+                "max_activation": -0.0041550537571311
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9112874269485474,
+                "std_activation": 0.5113861560821533,
+                "min_activation": 0.17377808690071106,
+                "max_activation": 1.5796462297439575
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22818623483181,
+                "std_activation": 0.24571113288402557,
+                "min_activation": -0.0037425397895276546,
+                "max_activation": 0.6050889492034912
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6152222156524658,
+                "std_activation": 0.3340495228767395,
+                "min_activation": 0.1334637850522995,
+                "max_activation": 1.0518100261688232
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2631075978279114,
+                "std_activation": 0.2711765766143799,
+                "min_activation": -0.014704793691635132,
+                "max_activation": 0.5801792144775391
+              }
+            ],
+            "circuit_idx": 4,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03621035814285278,
+                "std_activation": 0.024847425520420074,
+                "min_activation": -0.0720696747303009,
+                "max_activation": -0.0041550537571311
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9112874269485474,
+                "std_activation": 0.5113861560821533,
+                "min_activation": 0.17377808690071106,
+                "max_activation": 1.5796462297439575
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22818623483181,
+                "std_activation": 0.24571113288402557,
+                "min_activation": -0.0037425397895276546,
+                "max_activation": 0.6050889492034912
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6320163607597351,
+                "std_activation": 0.3226182758808136,
+                "min_activation": 0.1668892204761505,
+                "max_activation": 1.0537370443344116
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.27805885672569275,
+                "std_activation": 0.272729754447937,
+                "min_activation": -0.012989252805709839,
+                "max_activation": 0.5976016521453857
+              }
+            ],
+            "circuit_idx": 5,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.3333333333333333,
+              0.2916666666666667
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03621035814285278,
+                "std_activation": 0.024847425520420074,
+                "min_activation": -0.0720696747303009,
+                "max_activation": -0.0041550537571311
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9187043309211731,
+                "std_activation": 0.5063366889953613,
+                "min_activation": 0.1885400414466858,
+                "max_activation": 1.5804972648620605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22818623483181,
+                "std_activation": 0.24571113288402557,
+                "min_activation": -0.0037425397895276546,
+                "max_activation": 0.6050889492034912
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6152222156524658,
+                "std_activation": 0.3340495228767395,
+                "min_activation": 0.1334637850522995,
+                "max_activation": 1.0518100261688232
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.2678445279598236,
+                "std_activation": 0.2716276943683624,
+                "min_activation": -0.01416131854057312,
+                "max_activation": 0.5856990814208984
+              }
+            ],
+            "circuit_idx": 6,
+            "sparsity_value": 0.16666666666666666
+          },
+          {
+            "node_masks": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "edge_masks": [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ]
+            ],
+            "sparsity": [
+              0.16666666666666666,
+              0.2777777777777778,
+              0.25
+            ],
+            "neurons": [
+              {
+                "layer": 1,
+                "neuron_idx": 0,
+                "mean_activation": -0.03621035814285278,
+                "std_activation": 0.024847425520420074,
+                "min_activation": -0.0720696747303009,
+                "max_activation": -0.0041550537571311
+              },
+              {
+                "layer": 1,
+                "neuron_idx": 2,
+                "mean_activation": 0.6358711123466492,
+                "std_activation": 0.44091489911079407,
+                "min_activation": -6.172656867420301e-06,
+                "max_activation": 1.2121272087097168
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 0,
+                "mean_activation": 0.9187043309211731,
+                "std_activation": 0.5063366889953613,
+                "min_activation": 0.1885400414466858,
+                "max_activation": 1.5804972648620605
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 1,
+                "mean_activation": 0.22818623483181,
+                "std_activation": 0.24571113288402557,
+                "min_activation": -0.0037425397895276546,
+                "max_activation": 0.6050889492034912
+              },
+              {
+                "layer": 2,
+                "neuron_idx": 2,
+                "mean_activation": 0.6320163607597351,
+                "std_activation": 0.3226182758808136,
+                "min_activation": 0.1668892204761505,
+                "max_activation": 1.0537370443344116
+              },
+              {
+                "layer": 3,
+                "neuron_idx": 0,
+                "mean_activation": 0.28279584646224976,
+                "std_activation": 0.2733004093170166,
+                "min_activation": -0.012445777654647827,
+                "max_activation": 0.6031215190887451
+              }
+            ],
+            "circuit_idx": 7,
+            "sparsity_value": 0.16666666666666666
+          }
+        ]
+      }
+    ]
+  }
+]
