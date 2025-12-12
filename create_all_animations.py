@@ -11,7 +11,7 @@ from tqdm import tqdm
 import json
 
 # Find all detailed tracking JSON files
-json_files = glob.glob("detailed_tracking_100/logs/*/detailed_circuits*.json")
+json_files = glob.glob("detailed_circuit_tracking_100/logs/*/detailed_circuits*.json")
 
 print(f"Found {len(json_files)} detailed tracking files")
 print()
